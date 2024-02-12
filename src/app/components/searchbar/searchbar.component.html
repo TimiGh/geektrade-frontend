@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline" class="global-search">
+  <input type="text"
+  placeholder="What are you looking for?"
+  matInput
+  [formControl]="searchControl"
+  [matAutocomplete]="auto">
+  <button mat-icon-button matSuffix>
+    <mat-icon>search</mat-icon>
+  </button>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option ></mat-option>
+  </mat-autocomplete>
+</mat-form-field>

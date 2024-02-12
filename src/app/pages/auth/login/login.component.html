@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon (click)="back()">arrow_back</mat-icon>
+  </mat-card-header>
+  <div class="divider"></div>
+
+  <h1>Welcome back Trader!</h1>
+
+  <form [formGroup]="loginForm" fxLayout="column">
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Email" formControlName="email" required [ngModel]="email">
+      <mat-icon matSuffix>person_outline</mat-icon>
+    </mat-form-field>
+    <div *ngFor="let error of errorMessage.email">
+      <mat-error *ngIf="loginForm.get('email')?.hasError(error.type) && (loginForm.get('email')?.dirty
+                       || loginForm.get('email')?.touched)">{{error.message}}</mat-error>
+    </div>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Password" formControlName="password"
+             [type]="hide ? 'password' : 'text'" required [ngModel]="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div *ngFor="let error of errorMessage.password">
+      <mat-error *ngIf="loginForm.get('password')?.hasError(error.type) && (loginForm.get('password')?.dirty
+                       || loginForm.get('password')?.touched)">{{error.message}}</mat-error>
+    </div>
+
+    <div class="link" (click)="goToSignupPage()">New on GeekTrade? Create an account here!</div>
+
+    <mat-card-actions fxLayoutAlign="end center" fxLayoutGap="12px">
+      <button mat-button (click)="resetForm()">Reset Fields</button>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="loginUser()">Log In</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

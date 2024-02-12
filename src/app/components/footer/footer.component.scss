@@ -1,0 +1,35 @@
+.main-container {
+  background-color: #d5d9de;
+
+  &__content {
+    max-width: 1238px;
+    margin: 0 auto;
+    padding: 24px 0;
+
+    img {
+      height: 24px;
+      width: 154px;
+      cursor: pointer;
+      padding-bottom: 24px;
+    }
+
+    &__columns {
+      .column {
+        height: fit-content;
+        .title {
+          font-size: 16px;
+          font-weight: 900;
+          margin-bottom: 12px;
+
+        }
+
+        .link {
+          cursor: pointer;
+          padding-bottom: 4px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+}

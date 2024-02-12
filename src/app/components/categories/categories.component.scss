@@ -1,0 +1,33 @@
+.main-container {
+  max-width: 500px;
+  margin: 0 auto;
+  height: auto;
+
+  .category-card {
+    cursor: pointer;
+    margin-top: 24px;
+    width: 140px;
+    height: 180px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 12px;
+
+    .image-container {
+      border: 1px solid #f57c00;
+      padding: 16px;
+      background-color: #80d8ff;
+      border-radius: 22px;
+
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .title {
+      padding-top: 16px;
+      text-align: center;
+    }
+  }
+}
+

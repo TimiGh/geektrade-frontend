@@ -1,0 +1,20 @@
+<header>
+  <mat-toolbar color="primary">
+    <div class="main-container" fxLayout="row">
+      <img src="assets/images/logo_2.png" alt="logo" (click)="goHome()">
+      <div class="main-container__options-container" fxLayoutGap="16px">
+        <button mat-flat-button color="primary" (click)="goToLoginPage()">
+          <strong>My Account</strong>
+          <mat-icon>person</mat-icon>
+        </button>
+        <button mat-flat-button>
+          <strong>
+            Add a new listing
+          </strong>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</header>
+

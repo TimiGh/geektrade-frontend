@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon (click)="back()">arrow_back</mat-icon>
+  </mat-card-header>
+  <div class="divider"></div>
+  <h1>Create your Trader account!</h1>
+
+  <form [formGroup]="signupForm" fxLayout="column">
+    <mat-form-field appearance="outline">
+      <input matInput required placeholder="Email" formControlName="email" [ngModel]="email">
+      <mat-icon matSuffix>person_outline</mat-icon>
+    </mat-form-field>
+    <div *ngFor="let error of errorMessage.email">
+      <mat-error *ngIf="signupForm.get('email')?.hasError(error.type)
+                       && (signupForm.get('email')?.dirty
+                       || signupForm.get('email')?.touched)">{{error.message}}</mat-error>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Password" formControlName="password"
+             [type]="hide1 ? 'password' : 'text'" required [ngModel]="password">
+      <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide1">
+        <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div *ngFor="let error of errorMessage.password">
+      <mat-error *ngIf="signupForm.get('password')?.hasError(error.type)
+                       && (signupForm.get('password')?.dirty
+                       || signupForm.get('password')?.touched)">{{error.message}}</mat-error>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <input matInput required placeholder="Confirm password" formControlName="confirm_password"
+             [type]="hide2 ? 'password' : 'text'" [ngModel]="confirmedPassword">
+      <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide2">
+        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div *ngFor="let error of errorMessage.confirm_password">
+      <mat-error *ngIf="(signupForm.get('confirm_password')?.hasError(error.type)
+                       || signupForm.hasError(error.type)) && (signupForm.get('confirm_password')?.dirty
+                       || signupForm.get('confirm_password')?.touched)">{{error.message}}</mat-error>
+    </div>
+
+    <mat-checkbox formControlName="terms">I agree to the Terms & Conditions</mat-checkbox>
+
+    <mat-card-actions fxLayoutAlign="end center" fxLayoutGap="12px">
+      <button mat-button (click)="resetForm()">Reset Fields</button>
+      <button mat-raised-button color="primary" [disabled]="!signupForm.valid" (click)="signUp()">Sign Up</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

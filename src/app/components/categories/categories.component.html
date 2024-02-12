@@ -1,0 +1,9 @@
+<div class="main-container" fxLayout="row wrap" fxLayoutAlign="space-between start">
+  <div class="category-card" *ngFor="let category of categories$ | async" fxLayoutAlign="start center" fxLayout="column" (click)="navigate(category.id)">
+    <div class="image-container">
+      <img [src]="'assets/images/categories/' + category.id + '.png' " [alt]="category.name">
+    </div>
+    <div class="title">{{category.name}}</div>
+  </div>
+</div>
+
