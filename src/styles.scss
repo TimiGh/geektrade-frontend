@@ -55,3 +55,13 @@ body {
     background-color: white !important;
   }
 }
+
+.mat-snack-bar-container {
+  &.success {
+    background: mat.get-color-from-palette($frontend-primary, darker) !important;
+  }
+
+  &.error {
+    background: #e53935 !important;
+  }
+}

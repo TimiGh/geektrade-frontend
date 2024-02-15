@@ -1,3 +1,145 @@
 <mat-card>
+  <div class="container">
+    <div class="user-header-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+      <img
+        [ngSrc]="!!profile.profileImageKey ? 'http://' + profile.profileImageKey : '../../../assets/images/user-icon.png'"
+        width="106" height="106"
+        alt="user icon" class="user-icon">
+      <div fxLayout="column" fxLayoutAlign="center start">
+        <p class="username">{{profile.username}}</p>
+        <p class="join-date">Trader since {{profile.createdAt | date: 'MMMM YYYY'}}</p>
+      </div>
+    </div>
 
+    <div class="password-section">
+      <div class="title">Change password</div>
+      <form [formGroup]="passwordForm" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Old password" type="text" required formControlName="old_password"
+                 [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of passwordErrorMessage.old_password">
+          <mat-error *ngIf="passwordForm.get('old_password')?.hasError(error.type)
+                       && (passwordForm.get('old_password')?.dirty
+                       || passwordForm.get('old_password')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="New password" type="text" required formControlName="new_password"
+                 [type]="hide2 ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide2">
+            <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of passwordErrorMessage.new_password">
+          <mat-error *ngIf="passwordForm.get('new_password')?.hasError(error.type)
+                       && (passwordForm.get('new_password')?.dirty
+                       || passwordForm.get('new_password')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <input matInput required placeholder="Confirm password" formControlName="confirm_password"
+                 [type]="hide3 ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide3">
+            <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of passwordErrorMessage.confirm_password">
+          <mat-error *ngIf="(passwordForm.get('confirm_password')?.hasError(error.type)
+                       || passwordForm.hasError(error.type)) && (passwordForm.get('confirm_password')?.dirty
+                       || passwordForm.get('confirm_password')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+        <button mat-raised-button
+                color="primary"
+                [disabled]="!passwordForm.valid"
+                class="submit-button"
+                (click)="updatePassword()">Update password
+        </button>
+      </form>
+    </div>
+
+    <div class="profile-details-section">
+      <div class="title">Profile details</div>
+      <form [formGroup]="profileDetailsForm" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <input readonly matInput placeholder="Email" formControlName="email">
+          <button mat-icon-button matSuffix>
+            <mat-icon class="lock-icon">lock</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input type="text" matInput placeholder="Username" formControlName="username">
+          <button mat-icon-button matSuffix>
+            <mat-icon>person</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of profileDetailsErrorMessage.username">
+          <mat-error *ngIf="profileDetailsForm.get('username')?.hasError(error.type)
+                       && (profileDetailsForm.get('username')?.dirty
+                       || profileDetailsForm.get('username')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <input type="text" matInput placeholder="Phone" formControlName="phone">
+          <button mat-icon-button matSuffix>
+            <mat-icon>phone</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of profileDetailsErrorMessage.phone">
+          <mat-error *ngIf="profileDetailsForm.get('phone')?.hasError(error.type)
+                       && (profileDetailsForm.get('phone')?.dirty
+                       || profileDetailsForm.get('phone')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+
+        <div class="title address">Address</div>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="county" (selectionChange)="onCountyChange()">
+            <mat-option *ngFor="let county of counties" [value]="county">{{county}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngFor="let error of profileDetailsErrorMessage.phone">
+          <mat-error *ngIf="profileDetailsForm.get('county')?.hasError(error.type)
+                       && (profileDetailsForm.get('county')?.dirty
+                       || profileDetailsForm.get('county')?.touched)">{{error.message}}</mat-error>
+        </div>
+        <mat-form-field appearance="outline">
+         <mat-select formControlName="city">
+           <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
+         </mat-select>
+        </mat-form-field>
+        <div *ngFor="let error of profileDetailsErrorMessage.phone">
+          <mat-error *ngIf="profileDetailsForm.get('city')?.hasError(error.type)
+                       && (profileDetailsForm.get('city')?.dirty
+                       || profileDetailsForm.get('city')?.touched)">{{error.message}}</mat-error>
+        </div>
+        <mat-form-field appearance="outline">
+          <input type="text" matInput placeholder="Street" formControlName="street">
+          <button mat-icon-button matSuffix>
+            <mat-icon>location_on</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngFor="let error of profileDetailsErrorMessage.street">
+          <mat-error *ngIf="profileDetailsForm.get('street')?.hasError(error.type)
+                       && (profileDetailsForm.get('street')?.dirty
+                       || profileDetailsForm.get('street')?.touched)">{{error.message}}</mat-error>
+        </div>
+
+        <button mat-raised-button
+                color="primary"
+                [disabled]="!profileDetailsForm.valid"
+                class="submit-button"
+                (click)="updateProfileDetails()">Save changes
+        </button>
+      </form>
+    </div>
+  </div>
 </mat-card>

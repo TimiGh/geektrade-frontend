@@ -1,0 +1,49 @@
+.container {
+  padding: 24px 60px;
+
+  .user-header-container {
+    .user-icon {
+      height: 106px;
+      width: 106px;
+      border: 2px black solid;
+      border-radius: 50%;
+    }
+
+    .username {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .join-date {
+      font-size: 13px;
+      font-weight: lighter;
+      margin: 6px 0 0;
+    }
+  }
+
+  .submit-button {
+    width: fit-content;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .address {
+    margin-top: 20px;
+  }
+
+  .password-section, .profile-details-section {
+    margin: 40px 0 60px;
+    max-width: 400px;
+  }
+
+  .profile-details-section {
+    .lock-icon {
+     color: grey;
+    }
+  }
+}

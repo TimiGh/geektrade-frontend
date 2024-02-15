@@ -10,48 +10,54 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import {SearchbarComponent} from './components/searchbar/searchbar.component';
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { FooterComponent } from './components/footer/footer.component';
-import { CategoriesComponent } from './components/categories/categories.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {CategoriesComponent} from './components/categories/categories.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
-import { LoginComponent } from './pages/auth/login/login.component';
-import { SignupComponent } from './pages/auth/signup/signup.component';
+import {LoginComponent} from './pages/auth/login/login.component';
+import {SignupComponent} from './pages/auth/signup/signup.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import { ProfileComponent } from './pages/profile/profile.component';
+import {ProfileComponent} from './pages/profile/profile.component';
+import {NgOptimizedImage} from "@angular/common";
+import {MatSelectModule} from "@angular/material/select";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    SearchbarComponent,
-    FooterComponent,
-    CategoriesComponent,
-    LoginComponent,
-    SignupComponent,
-    ProfileComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    HttpClientModule,
-    MatCardModule,
-    MatCheckboxModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        SearchbarComponent,
+        FooterComponent,
+        CategoriesComponent,
+        LoginComponent,
+        SignupComponent,
+        ProfileComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        HttpClientModule,
+        MatCardModule,
+        MatCheckboxModule,
+        NgOptimizedImage,
+        MatSelectModule,
+        MatSnackBarModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
