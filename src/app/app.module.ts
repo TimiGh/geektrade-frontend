@@ -30,6 +30,7 @@ import {ImageCropperModule} from "ngx-image-cropper";
 import { ImageEditorDialogComponent } from './components/image-editor-dialog/image-editor-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { ListingDetailsComponent } from './pages/listing-details/listing-details.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ProfileComponent,
     AddListingComponent,
     ImageEditorDialogComponent,
+    ListingDetailsComponent,
   ],
     imports: [
         BrowserModule,

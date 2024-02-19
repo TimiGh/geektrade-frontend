@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class ListingService {
     private http: HttpClient
   ) { }
 
-  createListing(dto: CreateListingDto): Observable<any> {
-    return this.http.post('/api/listings', dto)
+  createListing(dto: CreateListingDto): Observable<string> {
+    return this.http.post<string>('/api/listings', dto);
   }
 
   addImageToListing(dto: any, listingId: string): Observable<any> {

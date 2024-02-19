@@ -76,7 +76,7 @@
       </div>
     </form>
     <div class="footer">
-      <button mat-flat-button color="primary" (click)="createNewListing()">Create New Listing</button>
+      <button mat-flat-button color="primary" (click)="createNewListing()" [disabled]="!listingForm.valid">Create New Listing</button>
     </div>
   </div>
 </mat-card>

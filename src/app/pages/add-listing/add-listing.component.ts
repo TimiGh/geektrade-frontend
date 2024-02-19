@@ -1,11 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Category, CategoryService} from "../../services/category.service";
-import {Observable} from "rxjs";
+import {forkJoin, Observable, repeat, switchMap} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ImageEditorDialogComponent} from "../../components/image-editor-dialog/image-editor-dialog.component";
+import {v4 as uuidv4} from 'uuid';
+import {ListingService} from "../../services/listing.service";
 
 @Component({
   selector: 'app-add-listing',
@@ -45,7 +47,8 @@ export class AddListingComponent implements OnInit {
     private categoryService: CategoryService,
     private snackbar: MatSnackBar,
     private sanitizer: DomSanitizer,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private listingService: ListingService
   ) {
   }
 
@@ -92,6 +95,7 @@ export class AddListingComponent implements OnInit {
         image.selected = true;
       }
 
+      image.localId = uuidv4();
       this.uploadedImages.unshift(image);
     })
 
@@ -103,7 +107,7 @@ export class AddListingComponent implements OnInit {
 
   setSelected(image: UploadedImage): void {
     this.uploadedImages = this.uploadedImages.map(uImage => {
-      uImage.selected = uImage.localUrl === image.localUrl || uImage.url === image.url;
+      uImage.selected = uImage.localId === image.localId;
       return uImage;
     });
   }
@@ -111,7 +115,7 @@ export class AddListingComponent implements OnInit {
   removeImage(event: any, image: UploadedImage): void {
     event.stopPropagation();
     event.preventDefault();
-    this.uploadedImages = this.uploadedImages.filter(uImage => uImage.localUrl !== image.localUrl && uImage.url !== image.url);
+    this.uploadedImages = this.uploadedImages.filter(uImage => uImage.localId !== image.localId);
 
     this.snackbar.open('The image has been successfully removed.', 'x', {
       panelClass: 'success',
@@ -121,7 +125,14 @@ export class AddListingComponent implements OnInit {
   }
 
   createNewListing(): void {
+    const dto = this.listingForm.value;
+    this.listingService.createListing(dto).pipe(
+      switchMap(listingId => forkJoin(this.getImagesObservableArray(listingId)))
+    ).subscribe(res => console.log('done'));
+  }
 
+  getImagesObservableArray(listingId: string): Observable<any>[] {
+    return this.uploadedImages.map(image => this.listingService.addImageToListing(image.file, listingId));
   }
 }
 
@@ -131,4 +142,5 @@ export type UploadedImage = {
   localUrl: SafeUrl;
   url?: SafeUrl;
   selected?: boolean;
+  localId?: string;
 }
