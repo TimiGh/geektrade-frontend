@@ -25,19 +25,26 @@ import {ProfileComponent} from './pages/profile/profile.component';
 import {NgOptimizedImage} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {AddListingComponent} from './pages/add-listing/add-listing.component';
+import {ImageCropperModule} from "ngx-image-cropper";
+import { ImageEditorDialogComponent } from './components/image-editor-dialog/image-editor-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        HeaderComponent,
-        SearchbarComponent,
-        FooterComponent,
-        CategoriesComponent,
-        LoginComponent,
-        SignupComponent,
-        ProfileComponent,
-    ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    SearchbarComponent,
+    FooterComponent,
+    CategoriesComponent,
+    LoginComponent,
+    SignupComponent,
+    ProfileComponent,
+    AddListingComponent,
+    ImageEditorDialogComponent,
+  ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -54,10 +61,13 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
         MatCheckboxModule,
         NgOptimizedImage,
         MatSelectModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        ImageCropperModule,
+        MatDialogModule,
+        MatTooltipModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

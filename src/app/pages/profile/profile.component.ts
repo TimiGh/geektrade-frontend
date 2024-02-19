@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Profile} from "../../models/profile";
 import {UserService} from "../../services/user.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -11,7 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
     profile: Profile;
     hide = true;
     hide2 = true;
@@ -63,7 +63,9 @@ export class ProfileComponent {
         private userService: UserService,
         private formBuilder: FormBuilder,
         private snackbar: MatSnackBar
-    ) {
+    ) {}
+
+    ngOnInit() {
         this.getProfileData();
         this.createCountiesOptions();
         this.createCitiesOptions();

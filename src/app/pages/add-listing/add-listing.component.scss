@@ -1,0 +1,91 @@
+.container {
+  padding: 24px 60px;
+
+  .form-row {
+    max-width: 820px;
+
+    .title, .category, .quality {
+      width: 400px;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+
+    .price {
+      width: 256px;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+
+    .negotiable {
+      margin-bottom: 24px;
+    }
+
+    .description {
+      width: 100%;
+
+      textarea {
+        resize: none;
+      }
+    }
+  }
+
+  .image-section {
+    width: 100%;
+
+    .uploaded-image {
+      margin-right: 12px;
+      position: relative;
+      cursor: pointer;
+
+      img {
+        box-sizing: border-box;
+        height: 190px;
+        width: 260px;
+        border-radius: 4px;
+      }
+
+      .delete-button {
+        position: absolute;
+        z-index: 100;
+        background-color: #e53935;
+        color: white;
+        height: 24px;
+        border-radius: 4px;
+        top: 5px;
+        right: 5px
+      }
+
+      &.selected {
+        img {
+          border: 3px solid #3f51b5;
+        }
+      }
+    }
+
+    .add-image {
+      height: 190px;
+      width: 260px;
+      cursor: pointer;
+
+      img {
+        width: inherit;
+        height: inherit;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .footer {
+    padding-top: 24px;
+    border-top: 1px solid lightgrey;
+    margin: 24px -60px 0;
+
+    button {
+      margin-left: 60px;
+    }
+  }
+}

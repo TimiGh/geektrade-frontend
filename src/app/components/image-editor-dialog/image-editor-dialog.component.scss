@@ -1,0 +1,22 @@
+mat-card {
+  .header {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .cropper-container {
+    padding: 12px;
+
+    .rotate-90 {
+      transform: matrix(0, 1, -1, 0, 0, 0);
+    }
+  }
+
+  .footer {
+    padding: 12px;
+    border-top: 1px solid lightgrey;
+
+    button {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<mat-card>
+  <div class="header" fxLayout="row" fxLayoutAlign="end">
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="cropper-container" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <image-cropper [imageBase64]="imageBase64"
+                     [transform]="transform"
+                     [canvasRotation]="canvasRotation"
+                     [imageChangedEvent]="data"
+                     [autoCrop]="true"
+                     [cropperMinWidth]="cropperSettings.cropperMinWidth ?? 400"
+                     [format]="cropperSettings.format ?? 'jpeg'"
+                     [imageQuality]="cropperSettings.imageQuality ?? 80"
+                     [aspectRatio]="cropperSettings.aspectRatio ?? 4/3"
+                     [maintainAspectRatio]="cropperSettings.maintainAspectRatio ?? false"
+                     [onlyScaleDown]="true"
+                     [resizeToWidth]="cropperSettings.resizeToWidth ?? 1280"
+                     [output]="cropperSettings.output ?? 'base64'"
+                     (imageCropped)="cropImage($event)">
+      </image-cropper>
+    </div>
+    <div class="mt-16 mb-16 w-100" fxLayout="row" fxLayoutAlign="center start">
+      <button (click)="flip('horizontal')" mat-icon-button matTooltip="Flip horizontally" tabindex="-1">
+        <mat-icon>flip</mat-icon>
+      </button>
+      <button (click)="flip('vertical')" mat-icon-button matTooltip="Flip vertically" tabindex="-1">
+        <mat-icon class="rotate-90">flip</mat-icon>
+      </button>
+      <button (click)="rotate('right')" mat-icon-button matTooltip="Rotate right" tabindex="-1">
+        <mat-icon>rotate_right</mat-icon>
+      </button>
+      <button (click)="rotate('left')" mat-icon-button matTooltip="Rotate left" tabindex="-1">
+        <mat-icon>rotate_left</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="footer">
+    <button mat-flat-button color="primary" (click)="saveImage()">Save Image</button>
+  </div>
+</mat-card>

@@ -5,6 +5,7 @@ import {SearchbarComponent} from "./components/searchbar/searchbar.component";
 import {LoginComponent} from "./pages/auth/login/login.component";
 import {SignupComponent} from "./pages/auth/signup/signup.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
+import {AddListingComponent} from "./pages/add-listing/add-listing.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'add-listing', component: AddListingComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,82 @@
+<mat-card>
+  <div class="container">
+    <h1>Create A New Listing</h1>
+
+    <form [formGroup]="listingForm">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="form-row">
+        <div class="title">
+          <mat-form-field appearance="outline">
+            <input type="text" matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+          <div *ngFor="let error of errorMessage.title">
+            <mat-error *ngIf="listingForm.get('title')?.hasError(error.type)
+                       && (listingForm.get('title')?.dirty
+                       || listingForm.get('title')?.touched)">{{error.message}}</mat-error>
+          </div>
+        </div>
+        <div class="price">
+          <mat-form-field appearance="outline">
+            <input type="text" matInput placeholder="Price" formControlName="price">
+          </mat-form-field>
+          <div *ngFor="let error of errorMessage.price">
+            <mat-error *ngIf="listingForm.get('price')?.hasError(error.type)
+                       && (listingForm.get('price')?.dirty
+                       || listingForm.get('price')?.touched)">{{error.message}}</mat-error>
+          </div>
+        </div>
+        <mat-checkbox formControlName="isNegotiable" class="negotiable">Negotiable</mat-checkbox>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="form-row">
+        <div class="category">
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="category" placeholder="Select Category">
+              <mat-option *ngFor="let category of (categories | async)"
+                          [value]="category.id">{{category.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngFor="let error of errorMessage.category">
+            <mat-error *ngIf="listingForm.get('category')?.hasError(error.type)
+                       && (listingForm.get('category')?.dirty
+                       || listingForm.get('category')?.touched)">{{error.message}}</mat-error>
+          </div>
+        </div>
+        <div class="quality">
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="quality" placeholder="Quality">
+              <mat-option value="new">New</mat-option>
+              <mat-option value="used">Used</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngFor="let error of errorMessage.quality">
+            <mat-error *ngIf="listingForm.get('quality')?.hasError(error.type)
+                       && (listingForm.get('quality')?.dirty
+                       || listingForm.get('quality')?.touched)">{{error.message}}</mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="description">
+          <textarea matInput formControlName="description" placeholder="Add a description" rows="4"></textarea>
+        </mat-form-field>
+        <div *ngFor="let error of errorMessage.description">
+          <mat-error *ngIf="listingForm.get('description')?.hasError(error.type)
+                       && (listingForm.get('description')?.dirty
+                       || listingForm.get('description')?.touched)">{{error.message}}</mat-error>
+        </div>
+      </div>
+      <div class="image-section" fxLayout="row wrap">
+        <div *ngFor="let image of uploadedImages" class="uploaded-image" [ngClass]="{'selected': image.selected}" (click)="setSelected(image)">
+          <img [src]="image.url" alt="listing image">
+          <div class="delete-button" (click)="removeImage($event, image)"><mat-icon>close</mat-icon></div>
+        </div>
+        <div class="add-image" (click)="selectImageInput()" matTooltip="Add an image">
+          <input #addImageInput type="file" accept="image/*"  class="cdk-visually-hidden" (change)="addImage($event)">
+          <img src="../../../assets/images/add-image.png" alt="idd image">
+        </div>
+      </div>
+    </form>
+    <div class="footer">
+      <button mat-flat-button color="primary" (click)="createNewListing()">Create New Listing</button>
+    </div>
+  </div>
+</mat-card>
