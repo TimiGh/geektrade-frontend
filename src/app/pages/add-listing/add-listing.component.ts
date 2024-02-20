@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Category, CategoryService} from "../../services/category.service";
-import {forkJoin, Observable, repeat, switchMap} from "rxjs";
+import {forkJoin, Observable, switchMap} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {SafeUrl} from "@angular/platform-browser";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ImageEditorDialogComponent} from "../../components/image-editor-dialog/image-editor-dialog.component";
 import {v4 as uuidv4} from 'uuid';
@@ -46,7 +46,6 @@ export class AddListingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private categoryService: CategoryService,
     private snackbar: MatSnackBar,
-    private sanitizer: DomSanitizer,
     private dialog: MatDialog,
     private listingService: ListingService
   ) {

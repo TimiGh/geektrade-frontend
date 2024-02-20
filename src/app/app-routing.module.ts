@@ -6,6 +6,8 @@ import {LoginComponent} from "./pages/auth/login/login.component";
 import {SignupComponent} from "./pages/auth/signup/signup.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {AddListingComponent} from "./pages/add-listing/add-listing.component";
+import {ListingDetailsComponent} from "./pages/listing-details/listing-details.component";
+import {ListingResolver} from "./utils/product.resolver";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,6 +16,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'add-listing', component: AddListingComponent},
+  {path: 'listings/:categorySlug/:listingId', component: ListingDetailsComponent, resolve: {listing: ListingResolver}},
 ];
 
 @NgModule({

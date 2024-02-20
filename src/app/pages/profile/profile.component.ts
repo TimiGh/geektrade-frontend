@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PasswordValidator} from "../../utils/password-validator";
 import * as locationsJson from '../../../assets/counties/counties.json';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {CustomDateFormats} from "../../utils/date-formats";
 
 @Component({
     selector: 'app-profile',
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit{
     locations: Locations = locationsJson;
     counties: string[] = [];
     cities: string[] = [];
+    dateFormat = CustomDateFormats.LITERAL_MONTH_YEAR;
 
     passwordErrorMessage = {
         'old_password': [

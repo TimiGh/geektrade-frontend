@@ -1,0 +1,120 @@
+$seller-section-width: 200px;
+$space-between-main-and-seller-sections: 24px;
+$page-paddings: 20px;
+$space-between-main-image-and-secondary-images: 12px;
+$secondary-image-width: 80px;
+
+.container {
+  padding: 24px 60px;
+
+  .main-section {
+    width: calc(100% - ($seller-section-width + $space-between-main-and-seller-sections + $page-paddings));
+
+    &__images-section {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 64px;
+
+      &__secondary-images {
+        margin-right: $space-between-main-image-and-secondary-images;
+
+        img {
+          width: 80px;
+          height: 60px;
+        }
+
+        img:not(:last-of-type) {
+          margin-bottom: $space-between-main-image-and-secondary-images;
+        }
+      }
+
+      &__main-image {
+        background-color: rgba(0, 0, 0, 0.75);
+        width: calc(100% - ($secondary-image-width + $space-between-main-image-and-secondary-images));
+        max-height: 400px;
+
+        img {
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &__tags {
+      mat-chip-option {
+        background-color: #3f51b5;
+
+        .text-label {
+          color: white !important;
+        }
+      }
+    }
+
+    &__price {
+      font-size: 20px;
+      text-align: end;
+      font-weight: bold;
+      color: #3f51b5;
+    }
+
+    &__negotiable {
+      font-style: italic;
+      font-size: 16px;
+      margin-top: 4px;
+    }
+
+    &__description {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 1.6rem;
+    }
+  }
+
+  .seller-section {
+    width: $seller-section-width;
+    height: fit-content;
+    background-color: aliceblue;
+    padding: 12px;
+
+    &__title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    &__profile-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid black;
+      padding: 10px;
+      background-color: white;
+    }
+
+    &__name {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__phone {
+      text-decoration: underline;
+    }
+
+    &__location {
+      font-size: 18px;
+    }
+  }
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.bold-text {
+  font-weight: bold;
+}

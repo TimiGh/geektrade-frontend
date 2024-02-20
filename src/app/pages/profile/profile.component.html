@@ -7,7 +7,7 @@
         alt="user icon" class="user-icon">
       <div fxLayout="column" fxLayoutAlign="center start">
         <p class="username">{{profile.username}}</p>
-        <p class="join-date">Trader since {{profile.createdAt | date: 'MMMM YYYY'}}</p>
+        <p class="join-date">Trader since {{profile.createdAt | date: dateFormat}}</p>
       </div>
     </div>
 

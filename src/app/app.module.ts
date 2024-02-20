@@ -31,6 +31,9 @@ import { ImageEditorDialogComponent } from './components/image-editor-dialog/ima
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { ListingDetailsComponent } from './pages/listing-details/listing-details.component';
+import {ListingResolver} from "./utils/product.resolver";
+import {PricePipe} from "./utils/price.pipe";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -46,29 +49,31 @@ import { ListingDetailsComponent } from './pages/listing-details/listing-details
     AddListingComponent,
     ImageEditorDialogComponent,
     ListingDetailsComponent,
+    PricePipe
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        FlexLayoutModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatAutocompleteModule,
-        HttpClientModule,
-        MatCardModule,
-        MatCheckboxModule,
-        NgOptimizedImage,
-        MatSelectModule,
-        MatSnackBarModule,
-        ImageCropperModule,
-        MatDialogModule,
-        MatTooltipModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    HttpClientModule,
+    MatCardModule,
+    MatCheckboxModule,
+    NgOptimizedImage,
+    MatSelectModule,
+    MatSnackBarModule,
+    ImageCropperModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatChipsModule
+  ],
+  providers: [ListingResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {

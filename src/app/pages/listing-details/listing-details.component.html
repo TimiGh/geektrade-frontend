@@ -1,1 +1,46 @@
-<p>listing-details works!</p>
+<mat-card>
+  <div class="container" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="main-section" fxLayout="column">
+      <div class="main-section__images-section" fxLayout="row">
+        <div class="main-section__images-section__secondary-images" fxLayout="column">
+          <img *ngFor="let image of localImages" [src]="image.imageKey" alt="secondary image"
+               [ngClass]="{'selected-image': image.selected}">
+        </div>
+        <div class="main-section__images-section__main-image" fxLayout="row" fxLayoutAlign="center center">
+          <img [src]="getSelectedImage()" alt="main image">
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <div fxLayout="column">
+          <span class="main-section__title">{{listing.title}}</span>
+          <div class="main-section__tags">
+            <mat-chip-listbox>
+              <mat-chip-option color="primary">{{listing.categoryName}}</mat-chip-option>
+              <mat-chip-option color="accent">{{listing.quality | titlecase}}</mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+        </div>
+        <div fxLayout="column">
+          <span class="main-section__price" [innerHTML]="listing.price | price"></span>
+          <span *ngIf="listing.isNegotiable" class="main-section__negotiable">Negotiable</span>
+        </div>
+      </div>
+      <div class="main-section__description">
+        {{listing.description}}
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between" class="mt-60">
+        <p class="main-section__created-at-date">Created at: {{listing.createdAt | date: dateFormat}}</p>
+        <p class="main-section__seen-counter">Seen <span class="bold-text">{{listing.seenCount}}</span> times</p>
+      </div>
+    </div>
+    <div class="seller-section" fxLayout="column" fxLayoutAlign="start center">
+      <p class="seller-section__title">Sold by</p>
+      <img
+        [src]="listing.sellerProfile.profileImageKey !== '' ? listing.sellerProfile.profileImageKey : defaultProfileImagePath"
+        alt="user profile image" class="seller-section__profile-image">
+      <p class="seller-section__name">{{listing.sellerProfile.name}}</p>
+      <p class="seller-section__phone">{{listing.sellerProfile.phone}}</p>
+      <p class="seller-section__location">{{listing.sellerProfile.city}}, {{listing.sellerProfile.county}}</p>
+    </div>
+  </div>
+</mat-card>

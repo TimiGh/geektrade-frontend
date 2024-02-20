@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Data} from "@angular/router";
+import {Listing} from "../../models/listing";
+import {CustomDateFormats} from "../../utils/date-formats";
 
 @Component({
   selector: 'app-listing-details',
@@ -6,5 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./listing-details.component.scss']
 })
 export class ListingDetailsComponent {
+  listing: Listing;
+  localImages: LocalImage[] = [];
+  dateFormat = CustomDateFormats.DAY_LITERAL_MONTH_YEAR;
+  defaultProfileImagePath = 'assets/images/user-icon.png';
+  placeholderImagePath =  'assets/images/placeholder-image.png';
 
+  constructor(
+    private route: ActivatedRoute
+  ) {
+    this.route.data.subscribe((data: Data) => {
+      this.listing = data['listing'];
+      this.localImages = this.listing.imageKeys.map((imageKey: string, index: number) => {
+        return {
+          imageKey: imageKey !== '' ? imageKey : this.placeholderImagePath,
+          selected: index === 0
+        }
+      });
+    })
+  }
+
+  getSelectedImage(): string {
+    console.log(this.localImages.find(image => image.selected && image.imageKey !== ''));
+    return this.localImages.find(image => image.selected && image.imageKey !== '')?.imageKey ||this.placeholderImagePath;
+  }
+}
+
+export type LocalImage = {
+  imageKey: string;
+  selected: boolean;
 }
