@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {Router} from "@angular/router";
+import {slugify} from "../../utils/slugify";
 
 @Component({
   selector: 'app-categories',
@@ -17,7 +18,8 @@ export class CategoriesComponent {
     this.categories$ = this.categoryService.getCategories();
   }
 
-  navigate(categoryId: number): void {
-    this.router.navigate(['search']).then();
+  navigate(categoryName: string): void {
+    const categorySlug = slugify(categoryName);
+    this.router.navigate([`listings/${categorySlug}`]).then();
   }
 }

@@ -4,10 +4,24 @@
   height: 72px;
   margin: 0 auto;
 
-  img {
+  .logo {
     height: 24px;
     margin: auto 0;
     cursor: pointer;
+  }
+
+  .account-menu {
+    color: white;
+
+    img {
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    strong {
+      margin-bottom: 2px;
+    }
   }
 
   &__options-container {

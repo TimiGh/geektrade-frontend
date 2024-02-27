@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {PasswordValidator} from "../../../utils/password-validator";
+import {passwordMatchValidator} from "../../../utils/password-validator";
 import {Router} from "@angular/router";
 
 @Component({
@@ -48,8 +48,8 @@ export class SignupComponent {
         Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])],
       confirm_password: new FormControl('', Validators.required),
       terms: [false, Validators.required]
-    }, (formGroup: FormGroup) => {
-      return PasswordValidator.areEqual(formGroup);
+    }, {
+      validators: passwordMatchValidator
     });
   }
 

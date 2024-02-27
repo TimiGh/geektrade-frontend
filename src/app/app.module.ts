@@ -34,6 +34,11 @@ import { ListingDetailsComponent } from './pages/listing-details/listing-details
 import {ListingResolver} from "./utils/product.resolver";
 import {PricePipe} from "./utils/price.pipe";
 import {MatChipsModule} from "@angular/material/chips";
+import { PersonalListingsComponent } from './pages/personal-listings/personal-listings.component';
+import { ListingCardComponent } from './components/listing-card/listing-card.component';
+import { SearchListingsComponent } from './pages/search-listings/search-listings.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -49,7 +54,10 @@ import {MatChipsModule} from "@angular/material/chips";
     AddListingComponent,
     ImageEditorDialogComponent,
     ListingDetailsComponent,
-    PricePipe
+    PricePipe,
+    PersonalListingsComponent,
+    ListingCardComponent,
+    SearchListingsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +79,9 @@ import {MatChipsModule} from "@angular/material/chips";
     ImageCropperModule,
     MatDialogModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [ListingResolver],
   bootstrap: [AppComponent]

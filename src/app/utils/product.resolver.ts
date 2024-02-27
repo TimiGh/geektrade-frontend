@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, Resolve} from "@angular/router";
-import {Listing} from "../models/listing";
+import {Listing, Quality} from "../models/listing";
 import {ListingService} from "../services/listing.service";
 import {Observable, of} from "rxjs";
 
@@ -18,7 +18,7 @@ export class ListingResolver implements Resolve<Listing> {
       isNegotiable: true,
       categoryId: '5',
       categoryName: 'Consoles & Accessories',
-      quality: 'new',
+      quality: Quality.NEW,
       description: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu magna posuere, efficitur tortor at, sodales felis. Nulla tincidunt lacus non dictum malesuada. Morbi interdum felis vel nulla elementum, a commodo turpis tincidunt. Donec viverra est quis lacus malesuada, ut iaculis odio pellentesque. Fusce sapien arcu, lobortis lobortis nunc nec, mollis mollis nisi. Vestibulum blandit massa ex, et vulputate purus ultrices non. In aliquet molestie arcu. Quisque elementum laoreet sapien, a suscipit libero dapibus ac.\n' +
         '\n' +
         'Maecenas ut quam mi. Etiam tempus massa eget nisi placerat pellentesque. Phasellus scelerisque sapien et sagittis molestie. Maecenas ut fringilla diam, ut malesuada sem. Vivamus ut velit quis lacus lacinia posuere at sed sem. Vestibulum nec neque quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum sed neque ac elit ultrices tempus. Sed velit nisi, mollis et bibendum a, scelerisque vitae purus. Integer purus sapien, fermentum vitae scelerisque fringilla, suscipit elementum nunc. Aenean viverra at ante ut varius. Pellentesque eu accumsan velit. Phasellus vitae eleifend dolor.\n' +
@@ -28,7 +28,7 @@ export class ListingResolver implements Resolve<Listing> {
       createdAt: new Date().toString(),
       seenCount: 788,
       sellerProfile: {
-        name: 'George Georgescu Popescu Marin',
+        name: 'George Georgescu Marin',
         phone: '0771719549',
         profileImageKey: '',
         county: 'Bihor',

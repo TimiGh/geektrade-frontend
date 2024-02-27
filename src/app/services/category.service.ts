@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import {Observable, of, take} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
+  localCategoryList: Category[];
 
   constructor(
     private http: HttpClient
@@ -14,7 +15,7 @@ export class CategoryService {
   getCategories(): Observable<Category[]> {
     // return this.http.get<Category[]>('api/categories');
 
-    return of([
+    const mocks = [
       {
         name: 'PC Games',
         id: 1
@@ -51,7 +52,23 @@ export class CategoryService {
         name: 'Services',
         id: 9
       }
-    ])
+    ];
+
+    this.setLocalCategories(mocks);
+
+    return of(mocks)
+  }
+
+  setLocalCategories(categories: Category[]): void {
+    this.localCategoryList = categories;
+  }
+
+  getCategoryById(categoryId: number): Category | undefined {
+    if (!this.localCategoryList) {
+      this.getCategories().pipe(take(1)).subscribe(categories => this.localCategoryList ??= categories);
+    }
+
+    return this.localCategoryList.find(category => category.id === categoryId);
   }
 }
 

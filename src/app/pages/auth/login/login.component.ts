@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {PasswordValidator} from "../../../utils/password-validator";
 import {Router} from "@angular/router";
 
 @Component({
@@ -36,7 +35,7 @@ export class LoginComponent {
         ],
         password: ['', Validators.compose([Validators.required, Validators.minLength(5),
           Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])]
-      }, (formGroup: FormGroup) => PasswordValidator.areEqual(formGroup)
+      }
     );
   }
 

@@ -10,7 +10,7 @@ export class PricePipe implements PipeTransform {
     const parts: string[] = (price / 100).toFixed(2).split('.');
 
     if (parts[1] === '00') {
-      return parts[0];
+      return `$ ${parts[0]}`;
     }
 
     if (!styled) {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Profile} from "../../models/profile";
 import {UserService} from "../../services/user.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {PasswordValidator} from "../../utils/password-validator";
+import {passwordMatchValidator} from "../../utils/password-validator";
 import * as locationsJson from '../../../assets/counties/counties.json';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CustomDateFormats} from "../../utils/date-formats";
@@ -112,8 +112,8 @@ export class ProfileComponent implements OnInit{
             new_password: ['', Validators.compose([Validators.minLength(5),
                 Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])],
             confirm_password: new FormControl('', Validators.required),
-        }, (formGroup: FormGroup) => {
-            return PasswordValidator.areEqual(formGroup);
+        }, {
+            validators: passwordMatchValidator
         });
     }
 

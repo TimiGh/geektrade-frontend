@@ -1,8 +1,13 @@
+<mat-card class="info-header">
+  <h1>Add A New Listing</h1>
+  <span>This is the place where a new Trade begins!</span>
+  <span>Make sure to fill all the fields and to add a detailed description of what you are selling.</span>
+  <span>Add as many photos as you like, to showcase your item and find a new home for it!</span>
+</mat-card>
+
 <mat-card>
   <div class="container">
-    <h1>Create A New Listing</h1>
-
-    <form [formGroup]="listingForm">
+      <form [formGroup]="listingForm">
       <div fxLayout="row" fxLayoutAlign="space-between center" class="form-row">
         <div class="title">
           <mat-form-field appearance="outline">
@@ -65,18 +70,23 @@
         </div>
       </div>
       <div class="image-section" fxLayout="row wrap">
-        <div *ngFor="let image of uploadedImages" class="uploaded-image" [ngClass]="{'selected': image.selected}" (click)="setSelected(image)">
+        <div *ngFor="let image of uploadedImages" class="uploaded-image" [ngClass]="{'selected': image.selected}"
+             (click)="setSelected(image)">
           <img [src]="image.url" alt="listing image">
-          <div class="delete-button" (click)="removeImage($event, image)"><mat-icon>close</mat-icon></div>
+          <div class="delete-button" (click)="removeImage($event, image)">
+            <mat-icon>close</mat-icon>
+          </div>
         </div>
         <div class="add-image" (click)="selectImageInput()" matTooltip="Add an image">
-          <input #addImageInput type="file" accept="image/*"  class="cdk-visually-hidden" (change)="addImage($event)">
+          <input #addImageInput type="file" accept="image/*" class="cdk-visually-hidden" (change)="addImage($event)">
           <img src="../../../assets/images/add-image.png" alt="idd image">
         </div>
       </div>
     </form>
     <div class="footer">
-      <button mat-flat-button color="primary" (click)="createNewListing()" [disabled]="!listingForm.valid">Create New Listing</button>
+      <button mat-flat-button color="primary" (click)="createNewListing()" [disabled]="!listingForm.valid">Create New
+        Listing
+      </button>
     </div>
   </div>
 </mat-card>

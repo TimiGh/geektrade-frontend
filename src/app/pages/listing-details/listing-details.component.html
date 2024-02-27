@@ -15,8 +15,8 @@
           <span class="main-section__title">{{listing.title}}</span>
           <div class="main-section__tags">
             <mat-chip-listbox>
-              <mat-chip-option color="primary">{{listing.categoryName}}</mat-chip-option>
-              <mat-chip-option color="accent">{{listing.quality | titlecase}}</mat-chip-option>
+              <mat-chip-option color="primary" selected="true" removable="false">{{listing.categoryName}}</mat-chip-option>
+              <mat-chip-option color="accent" selected="true" removable="false">{{listing.quality | titlecase}}</mat-chip-option>
             </mat-chip-listbox>
           </div>
         </div>

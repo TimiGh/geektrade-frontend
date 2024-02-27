@@ -1,0 +1,21 @@
+mat-card {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.paginator-top {
+  margin-bottom: 12px;
+}
+
+.paginator-top, .paginator-bottom {
+  border-radius: 4px;
+}
+
+.listing-card {
+  margin-bottom: 12px;
+}
+
+.mat-mdc-card::ng-deep   {
+    box-shadow: none;
+  }
+

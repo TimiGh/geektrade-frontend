@@ -59,7 +59,7 @@ export class AddListingComponent implements OnInit {
   createListingForm(): void {
     this.listingForm = this.formBuilder.group({
       title: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
-      price: [null, Validators.required],
+      price: [null, Validators.compose([Validators.required, Validators.pattern('^\\d+(.\\d{1,2})?$')])],
       isNegotiable: [false],
       category: ['', Validators.required],
       quality: ['', Validators.required],

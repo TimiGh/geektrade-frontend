@@ -1,13 +1,38 @@
 <header>
   <mat-toolbar color="primary">
     <div class="main-container" fxLayout="row">
-      <img src="assets/images/logo_2.png" alt="logo" (click)="goHome()">
+      <img src="assets/images/logo_2.png" alt="logo" (click)="goHome()" class="logo">
       <div class="main-container__options-container" fxLayoutGap="16px">
-        <button mat-flat-button color="primary" (click)="goToLoginPage()">
-          <strong>My Account</strong>
+        <button mat-flat-button color="primary" (click)="goToLoginPage()" *ngIf="!user">
           <mat-icon>person</mat-icon>
+          <strong>My Account</strong>
         </button>
-        <button mat-flat-button>
+        <button mat-flat-button color="accent" *ngIf="user" class="account-menu" [matMenuTriggerFor]="accountMenu">
+          <span fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="4px">
+            <img [src]="user.profileImageKey ? user.profileImageKey : '../../assets/images/user-icon.png'" alt="user profile image">
+            <strong>{{user.username}}</strong>
+          </span>
+          <mat-icon iconPositionEnd>expand_more</mat-icon>
+        </button>
+        <mat-menu #accountMenu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="navigateTo(navigationTargets.PROFILE)">
+            <mat-icon>account_circle</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item (click)="navigateTo(navigationTargets.NEW_LISTING)">
+            <mat-icon>add_circle</mat-icon>
+          <span>Add new listing</span>
+          </button>
+          <button mat-menu-item (click)="navigateTo(navigationTargets.PERSONAL_LISTINGS)">
+            <mat-icon>star</mat-icon>
+          <span>My listings</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+            <span>Log out</span>
+          </button>
+        </mat-menu>
+        <button mat-flat-button (click)="navigateTo(navigationTargets.NEW_LISTING)" *ngIf="user">
           <strong>
             Add a new listing
           </strong>

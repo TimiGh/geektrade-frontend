@@ -1,0 +1,22 @@
+<mat-card>
+  <h1>My Listings</h1>
+  <span>Here you can see your active listings. In the future you will be able to edit and remove any active listing.</span>
+  <span>You will also be able to search listings by name and sort by price or date.</span>
+</mat-card>
+
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               aria-label="Select page"
+               class="paginator-top">
+</mat-paginator>
+
+<div *ngFor="let listing of personalListings" class="listing-card">
+  <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.listingId)"></app-listing-card>
+</div>
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               aria-label="Select page"
+               class="paginator-bottom">
+</mat-paginator>

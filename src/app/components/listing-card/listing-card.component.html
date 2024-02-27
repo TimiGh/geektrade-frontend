@@ -1,0 +1,25 @@
+<mat-card fxLayout="row">
+  <div class="image-container">
+    <img
+      [ngSrc]="(!!listing.imageKey && listing.imageKey !== '') ? 'http://' + listing.imageKey : '../../../assets/images/placeholder-image.png'"
+      alt="listing image" width="216" height="156">
+  </div>
+  <div class="listing-info-container" fxLayout="row" fxLayoutAlign="space-between">
+    <div>
+      <div class="title">{{listing.title}}</div>
+      <mat-chip-set>
+
+      </mat-chip-set>
+      <mat-chip-listbox>
+        <mat-chip-option [color]="listing.quality === Quality.NEW ? 'primary' : 'accent'">
+          {{listing.quality | titlecase}}
+        </mat-chip-option>
+      </mat-chip-listbox>
+      <div class="date">{{listing.createdAt | date: dateFormat}}</div>
+    </div>
+    <div>
+      <div class="price" [innerHTML]="listing.price | price"></div>
+      <div class="negotiable" *ngIf="listing.isNegotiable">Negotiable</div>
+    </div>
+  </div>
+</mat-card>

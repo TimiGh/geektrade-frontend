@@ -6,10 +6,15 @@ export interface Listing {
   isNegotiable: boolean;
   categoryId: string;
   categoryName: string;
-  quality: string;
+  quality: Quality;
   description: string;
   imageKeys: string[];
   createdAt: string;
   seenCount: number;
   sellerProfile: Seller;
+}
+
+export enum Quality {
+  USED = 'used',
+  NEW = 'new'
 }

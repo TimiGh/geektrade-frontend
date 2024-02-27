@@ -1,0 +1,43 @@
+mat-card {
+  padding: 6px;
+  cursor: pointer;
+
+  .image-container {
+    height: 156px;
+    img {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  .listing-info-container {
+    width: 100%;
+    padding: 0 12px 0;
+    height: 156px;
+
+    .title {
+      font-size: 22px;
+    }
+
+    .date {
+      margin-top: 66px;
+      font-size: 14px;
+      font-weight: lighter;
+    }
+
+    .price {
+      font-weight: bold;
+      text-align: end;
+    }
+
+    .negotiable {
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+  }
+
+}
+
+.mat-mdc-card::ng-deep   {
+  box-shadow: none;
+}

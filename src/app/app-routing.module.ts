@@ -8,14 +8,17 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {AddListingComponent} from "./pages/add-listing/add-listing.component";
 import {ListingDetailsComponent} from "./pages/listing-details/listing-details.component";
 import {ListingResolver} from "./utils/product.resolver";
+import {PersonalListingsComponent} from "./pages/personal-listings/personal-listings.component";
+import {SearchListingsComponent} from "./pages/search-listings/search-listings.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'search', component: SearchbarComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'add-listing', component: AddListingComponent},
+  {path: 'profile/add-listing', component: AddListingComponent},
+  {path: 'profile/my-listings', component: PersonalListingsComponent},
+  {path: 'listings/:categorySlug', component: SearchListingsComponent},
   {path: 'listings/:categorySlug/:listingId', component: ListingDetailsComponent, resolve: {listing: ListingResolver}},
 ];
 
