@@ -39,6 +39,11 @@ import { ListingCardComponent } from './components/listing-card/listing-card.com
 import { SearchListingsComponent } from './pages/search-listings/search-listings.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatMenuModule} from "@angular/material/menu";
+import { CategoryFilterComponent } from './components/category-filter/category-filter.component';
+import { SortComponent } from './components/sort/sort.component';
+import { PriceFilterComponent } from './components/price-filter/price-filter.component';
+import { QualityFilterComponent } from './components/quality-filter/quality-filter.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,12 @@ import {MatMenuModule} from "@angular/material/menu";
     PricePipe,
     PersonalListingsComponent,
     ListingCardComponent,
-    SearchListingsComponent
+    SearchListingsComponent,
+    CategoryFilterComponent,
+    SortComponent,
+    PriceFilterComponent,
+    QualityFilterComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
