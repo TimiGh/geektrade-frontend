@@ -17,7 +17,7 @@ export class CategoryService {
 
     const mocks = [
       {
-        name: 'PC Games',
+        name: 'PC Components',
         id: 1
       },
       {
