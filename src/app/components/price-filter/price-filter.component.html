@@ -1,1 +1,14 @@
-<p>price-filter works!</p>
+<div class="container" fxLayout="column">
+  <div class="title">Price</div>
+
+  <div [formGroup]="priceForm" fxLayout="row" fxLayoutGap="14px">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Min" type="number" required formControlName="minPrice">
+      </mat-form-field>
+      <div class="minus">-</div>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Max" type="number" required formControlName="maxPrice">
+      </mat-form-field>
+  </div>
+
+</div>

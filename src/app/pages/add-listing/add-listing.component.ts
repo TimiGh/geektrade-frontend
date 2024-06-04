@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ImageEditorDialogComponent} from "../../components/image-editor-dialog/image-editor-dialog.component";
 import {v4 as uuidv4} from 'uuid';
 import {ListingService} from "../../services/listing.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-listing',
@@ -47,7 +48,8 @@ export class AddListingComponent implements OnInit {
     private categoryService: CategoryService,
     private snackbar: MatSnackBar,
     private dialog: MatDialog,
-    private listingService: ListingService
+    private listingService: ListingService,
+    private router: Router
   ) {
   }
 
@@ -127,7 +129,17 @@ export class AddListingComponent implements OnInit {
     const dto = this.listingForm.value;
     this.listingService.createListing(dto).pipe(
       switchMap(listingId => forkJoin(this.getImagesObservableArray(listingId)))
-    ).subscribe(res => console.log('done'));
+    ).subscribe(res =>{
+      this.snackbar.open('The listing hase been successfully created!', 'x', {
+        panelClass: 'success',
+        verticalPosition: 'bottom',
+        horizontalPosition: "center",
+        duration: 3500
+      })
+    });
+
+    const commands: string[] = ['profile/my-listings'];
+    this.router.navigate(commands).then();
   }
 
   getImagesObservableArray(listingId: string): Observable<any>[] {

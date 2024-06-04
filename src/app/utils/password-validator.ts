@@ -12,3 +12,4 @@ export const passwordMatchValidator: ValidatorFn = (control: AbstractControl): V
 
   return null;
 }
+

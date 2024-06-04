@@ -23,3 +23,12 @@ export type ListingView = {
   createdAt: string;
   categoryId: number;
 }
+
+export type CreateListingDto = {
+  title: string;
+  price: number;
+  isNegotiable: boolean;
+  category: string;
+  quality: Quality;
+  description: string;
+}

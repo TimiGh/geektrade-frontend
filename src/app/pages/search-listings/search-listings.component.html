@@ -1,2 +1,44 @@
-<p>search-listings works!</p>
-<app-category-filter></app-category-filter>
+<div>
+  <app-searchbar></app-searchbar>
+  <mat-card class="actions" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="breadcrumbs">
+    <span>Home</span> /
+      <span>{{currentCategory?.name}}</span>
+    </div>
+    <div class="sort-container">
+      <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+        <mat-select formControlName="quality" placeholder="Sort by ...">
+          <mat-option value="relevance">Relevance</mat-option>
+          <mat-option value="new">New</mat-option>
+          <mat-option value="low">Price: lowest first</mat-option>
+          <mat-option value="high">Price: highest first</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card>
+  <div class="main-container" fxLayout="row">
+    <mat-card class="side-filters">
+      <app-category-filter (categorySelected)="setCurrentCategory($event)"></app-category-filter>
+      <app-price-filter></app-price-filter>
+      <app-quality-filter></app-quality-filter>
+    </mat-card>
+    <div class="listings">
+      <mat-paginator [length]="100"
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     aria-label="Select page"
+                     class="paginator-top">
+      </mat-paginator>
+
+      <div *ngFor="let listing of listings" class="listing-card">
+        <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.listingId)"></app-listing-card>
+      </div>
+      <mat-paginator [length]="100"
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     aria-label="Select page"
+                     class="paginator-bottom">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

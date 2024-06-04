@@ -7,9 +7,6 @@
   <div class="listing-info-container" fxLayout="row" fxLayoutAlign="space-between">
     <div>
       <div class="title">{{listing.title}}</div>
-      <mat-chip-set>
-
-      </mat-chip-set>
       <mat-chip-listbox>
         <mat-chip-option [color]="listing.quality === Quality.NEW ? 'primary' : 'accent'">
           {{listing.quality | titlecase}}

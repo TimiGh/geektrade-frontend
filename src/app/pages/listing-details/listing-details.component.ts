@@ -30,7 +30,6 @@ export class ListingDetailsComponent {
   }
 
   getSelectedImage(): string {
-    console.log(this.localImages.find(image => image.selected && image.imageKey !== ''));
     return this.localImages.find(image => image.selected && image.imageKey !== '')?.imageKey ||this.placeholderImagePath;
   }
 }

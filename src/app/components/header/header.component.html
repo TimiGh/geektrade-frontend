@@ -3,11 +3,11 @@
     <div class="main-container" fxLayout="row">
       <img src="assets/images/logo_2.png" alt="logo" (click)="goHome()" class="logo">
       <div class="main-container__options-container" fxLayoutGap="16px">
-        <button mat-flat-button color="primary" (click)="goToLoginPage()" *ngIf="!user">
+        <button mat-flat-button color="primary" (click)="goToLoginPage()" *ngIf="!isUser()">
           <mat-icon>person</mat-icon>
           <strong>My Account</strong>
         </button>
-        <button mat-flat-button color="accent" *ngIf="user" class="account-menu" [matMenuTriggerFor]="accountMenu">
+        <button mat-flat-button color="accent" *ngIf="isUser()" class="account-menu" [matMenuTriggerFor]="accountMenu">
           <span fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="4px">
             <img [src]="user.profileImageKey ? user.profileImageKey : '../../assets/images/user-icon.png'" alt="user profile image">
             <strong>{{user.username}}</strong>
@@ -32,7 +32,7 @@
             <span>Log out</span>
           </button>
         </mat-menu>
-        <button mat-flat-button (click)="navigateTo(navigationTargets.NEW_LISTING)" *ngIf="user">
+        <button mat-flat-button (click)="navigateTo(navigationTargets.NEW_LISTING)" *ngIf="isUser()">
           <strong>
             Add a new listing
           </strong>

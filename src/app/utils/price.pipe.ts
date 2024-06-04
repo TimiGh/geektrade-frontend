@@ -20,3 +20,4 @@ export class PricePipe implements PipeTransform {
     return `$ ${parts[0]}<sup>${parts[1]}</sup>`;
   }
 }
+

@@ -44,6 +44,7 @@ import { SortComponent } from './components/sort/sort.component';
 import { PriceFilterComponent } from './components/price-filter/price-filter.component';
 import { QualityFilterComponent } from './components/quality-filter/quality-filter.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -69,30 +70,31 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     QualityFilterComponent,
     BreadcrumbComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    HttpClientModule,
-    MatCardModule,
-    MatCheckboxModule,
-    NgOptimizedImage,
-    MatSelectModule,
-    MatSnackBarModule,
-    ImageCropperModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatChipsModule,
-    MatPaginatorModule,
-    MatMenuModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        HttpClientModule,
+        MatCardModule,
+        MatCheckboxModule,
+        NgOptimizedImage,
+        MatSelectModule,
+        MatSnackBarModule,
+        ImageCropperModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatChipsModule,
+        MatPaginatorModule,
+        MatMenuModule,
+        MatDividerModule
+    ],
   providers: [ListingResolver],
   bootstrap: [AppComponent]
 })

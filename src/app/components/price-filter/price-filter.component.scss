@@ -1,0 +1,17 @@
+.container {
+  padding: 24px;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .minus {
+    margin-top: 16px;
+  }
+
+  .mat-mdc-form-field {
+    max-width: 100px;
+  }
+}

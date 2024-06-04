@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Category, CategoryService} from "../../services/category.service";
+import {slugify} from "../../utils/slugify";
 
 @Component({
   selector: 'app-category-filter',
@@ -8,14 +10,29 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CategoryFilterComponent {
   selectedCategoryFilter: string;
+  categoryOptions: Category[] = [];
+  protected readonly slugify = slugify;
+  @Output() categorySelected: EventEmitter<Category> = new EventEmitter<Category>();
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private categoryService: CategoryService
   ) {
     this.getCategoryParam();
+    this.getCategoryOptions();
   }
 
   getCategoryParam(): void {
-    this.route.queryParams.subscribe(res => console.log(res, 'queryParams'))
+    this.selectedCategoryFilter = this.route.snapshot.paramMap.get('categorySlug')!;
+  }
+
+  getCategoryOptions(): void {
+    this.categoryService.getCategories().subscribe((categories: Category[]) => this.categoryOptions = categories);
+  }
+
+  setSelectedCategory(categoryId: number): void {
+    const selectedCategory = this.categoryOptions.find(category => category.id === categoryId);
+    this.selectedCategoryFilter = slugify(selectedCategory?.name!);
+    this.categorySelected.emit(selectedCategory);
   }
 }

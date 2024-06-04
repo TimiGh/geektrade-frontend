@@ -1,6 +1,7 @@
 import {Seller} from "./seller";
 
 export interface Listing {
+  id: number;
   title: string;
   price: number;
   isNegotiable: boolean;

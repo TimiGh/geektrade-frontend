@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {
     this.loginForm = this.formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.email,
@@ -52,6 +54,19 @@ export class LoginComponent {
   }
 
   loginUser() {
+    const userData = {
+      email: this.loginForm.get('email')?.value,
+      password: this.loginForm.get('password')?.value
+    }
+    localStorage.setItem('userData', JSON.stringify(userData));
 
+    this.router.navigate(['/']).then(() => {
+      this.snackbar.open('Welcome back Trader!', 'X', {
+        panelClass: 'success',
+        verticalPosition: 'bottom',
+        duration: 3500
+      });
+    })
   }
 }
+

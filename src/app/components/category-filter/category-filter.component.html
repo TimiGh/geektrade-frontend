@@ -1,4 +1,8 @@
-<mat-card>
-  <span class="title">Categories</span>
+<div class="container">
+  <div class="title">Categories</div>
 
-</mat-card>
+  <div class="category-option" *ngFor="let category of categoryOptions; let last = last" (click)="setSelectedCategory(category.id)" [ngClass]="{'selected': slugify(category.name) === selectedCategoryFilter}" fxLayout="row">
+    <mat-icon>stars</mat-icon>
+    <div class="category-name">{{category.name}}</div>
+  </div>
+</div>

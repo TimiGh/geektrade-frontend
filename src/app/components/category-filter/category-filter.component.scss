@@ -1,0 +1,26 @@
+.container {
+padding: 24px;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .category-option {
+    cursor: pointer;
+    line-height: 44px;
+    border-bottom: 1px solid dimgrey;
+    align-items: center;
+    color: dimgrey;
+
+    .mat-icon {
+      margin-right: 6px;
+    }
+  }
+
+  .selected {
+    color: #3949ab;
+    font-weight: bold;
+  }
+}

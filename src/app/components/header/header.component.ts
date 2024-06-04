@@ -13,7 +13,10 @@ export class HeaderComponent {
   constructor(
     private router: Router
   ) {
+  }
 
+  isUser(): boolean {
+    return !!localStorage.getItem('userData');
   }
 
   goHome(): void {
@@ -45,7 +48,10 @@ export class HeaderComponent {
   }
 
   logout(): void {
-
+    if (localStorage.getItem('userData')) {
+      localStorage.removeItem('userData')
+      this.router.navigate(['/login']).then();
+    }
   }
 }
 
