@@ -88,8 +88,8 @@ export class AddListingComponent implements OnInit {
 
     const dialogRef: MatDialogRef<ImageEditorDialogComponent> = this.dialog.open(ImageEditorDialogComponent, {
       data: file,
-      maxWidth: 640,
-      width: '640px',
+      maxWidth: 380,
+      width: '380px',
       autoFocus: false,
       panelClass: 'base-panel'
     });
