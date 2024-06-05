@@ -68,6 +68,10 @@
                        && (listingForm.get('description')?.dirty
                        || listingForm.get('description')?.touched)">{{error.message}}</mat-error>
         </div>
+        <div *ngIf="isDescriptionGenerationLoading" class="loading" fxLayout="row" fxLayoutAlign="start center" style="margin-bottom: 16px">
+          <mat-progress-spinner color="primary" diameter="24" mode="indeterminate"></mat-progress-spinner>
+          <span style="margin-left: 8px">Please wait while our AI is generating a description based on your uploaded image...</span>
+        </div>
       </div>
       <div class="image-section" fxLayout="row wrap">
         <div *ngFor="let image of uploadedImages" class="uploaded-image" [ngClass]="{'selected': image.selected}"

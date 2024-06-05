@@ -3,11 +3,11 @@
   <mat-card class="actions" fxLayout="row" fxLayoutAlign="space-between center">
     <div class="breadcrumbs">
     <span>Home</span> /
-      <span>{{currentCategory?.name}}</span>
+      <span>{{currentCategory.name}}</span>
     </div>
-    <div class="sort-container">
+    <div [formGroup]="sortForm" class="sort-container">
       <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
-        <mat-select formControlName="quality" placeholder="Sort by ...">
+        <mat-select formControlName="sort" placeholder="Sort by ...">
           <mat-option value="relevance">Relevance</mat-option>
           <mat-option value="new">New</mat-option>
           <mat-option value="low">Price: lowest first</mat-option>

@@ -19,6 +19,9 @@ export class AddListingComponent implements OnInit {
   listingForm: FormGroup;
   categories: Observable<Category[]>;
   uploadedImages: UploadedImage[] = [];
+  isDescriptionGenerationLoading = false;
+  visionPrompt: string = 'I want to create a description for a product that I am selling on a marketplace. Please generate a description with relevant details for a listing using easy to understand language. The summary should be short and concise. Here is the image of the product.';
+  newProductDescription: string = 'Experience the award-winning adventure game "It Takes Two" on PS4! Perfect for cooperative play, this game offers a unique story and engaging puzzles. Friends can join online co-op for free. Includes PS5 upgrade.';
   @ViewChild('addImageInput', {static: false}) addImageInput: any;
 
   errorMessage = {
@@ -98,8 +101,21 @@ export class AddListingComponent implements OnInit {
 
       image.localId = uuidv4();
       this.uploadedImages.unshift(image);
+      this.generateDescription();
     })
 
+  }
+
+  generateDescription(): void {
+    if (this.uploadedImages.length > 1) {
+      return;
+    }
+
+    this.isDescriptionGenerationLoading = true;
+    setTimeout(() => {
+      this.listingForm.get('description')?.patchValue(this.newProductDescription);
+      this.isDescriptionGenerationLoading = false;
+    }, 3000);
   }
 
   selectImageInput(): void {
@@ -129,7 +145,7 @@ export class AddListingComponent implements OnInit {
     const dto = this.listingForm.value;
     this.listingService.createListing(dto).pipe(
       switchMap(listingId => forkJoin(this.getImagesObservableArray(listingId)))
-    ).subscribe(res =>{
+    ).subscribe(res => {
       this.snackbar.open('The listing hase been successfully created!', 'x', {
         panelClass: 'success',
         verticalPosition: 'bottom',

@@ -4,6 +4,7 @@ import {slugify} from "../../utils/slugify";
 import {Category, CategoryService} from "../../services/category.service";
 import {ListingView} from "../../components/listing-card/listing-card.component";
 import {ListingService, PersonalListings} from "../../services/listing.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-search-listings',
@@ -13,14 +14,18 @@ import {ListingService, PersonalListings} from "../../services/listing.service";
 export class SearchListingsComponent {
 listings: ListingView[] = [];
 currentCategory: Category;
+sortForm;
 constructor(
   private router: Router,
   private categoryService: CategoryService,
   private listingService: ListingService,
-  private route: ActivatedRoute
+  private route: ActivatedRoute,
+  private formBuilder: FormBuilder
 ) {
   this.getListings();
   this.initializeCurrentCategory();
+
+  this.sortForm = this.formBuilder.group({sort: ['']});
 }
 
   getListings(): void {

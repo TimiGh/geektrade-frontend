@@ -1,7 +1,10 @@
 <mat-card fxLayout="row">
   <div class="image-container">
+<!--    <img-->
+<!--      [ngSrc]="(!!listing.imageKey && listing.imageKey !== '') ? 'http://' + listing.imageKey : '../../../assets/images/placeholder-image.png'"-->
+<!--      alt="listing image" width="216" height="156">-->
     <img
-      [ngSrc]="(!!listing.imageKey && listing.imageKey !== '') ? 'http://' + listing.imageKey : '../../../assets/images/placeholder-image.png'"
+      [src]="(listing.imageKey && listing.imageKey !== '') ?  '../../../assets/mocks/'+listing.listingId+'.jpg' : '../../../assets/images/placeholder-image.png'"
       alt="listing image" width="216" height="156">
   </div>
   <div class="listing-info-container" fxLayout="row" fxLayoutAlign="space-between">

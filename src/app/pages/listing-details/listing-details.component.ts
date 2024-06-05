@@ -30,7 +30,8 @@ export class ListingDetailsComponent {
   }
 
   getSelectedImage(): string {
-    return this.localImages.find(image => image.selected && image.imageKey !== '')?.imageKey ||this.placeholderImagePath;
+    // return this.localImages.find(image => image.selected && image.imageKey !== '')?.imageKey ||this.placeholderImagePath;
+    return this.localImages.find(image => image.selected && image.imageKey !== '') ? 'assets/mocks/'+this.listing.id+'.jpg' : this.placeholderImagePath;
   }
 }
 

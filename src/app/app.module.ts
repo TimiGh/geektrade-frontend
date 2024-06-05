@@ -45,6 +45,7 @@ import { PriceFilterComponent } from './components/price-filter/price-filter.com
 import { QualityFilterComponent } from './components/quality-filter/quality-filter.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import {MatDividerModule} from "@angular/material/divider";
         MatChipsModule,
         MatPaginatorModule,
         MatMenuModule,
-        MatDividerModule
+        MatDividerModule,
+        MatProgressSpinnerModule
     ],
   providers: [ListingResolver],
   bootstrap: [AppComponent]

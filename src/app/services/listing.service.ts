@@ -12,7 +12,7 @@ export class ListingService {
   personalListings: ListingView[] = [
     {
       listingId: '1',
-      imageKey: null,
+      imageKey: 'asd',
       title: 'Asus ROG RTX 4090',
       quality: Quality.NEW,
       price: 9000,
@@ -22,7 +22,7 @@ export class ListingService {
     },
     {
       listingId: '2',
-      imageKey: null,
+      imageKey: 'asd',
       title: 'Mario Kart 8 - Switch',
       quality: Quality.NEW,
       price: 15080,
@@ -32,7 +32,7 @@ export class ListingService {
     },
     {
       listingId: '3',
-      imageKey: null,
+      imageKey: 'asd',
       title: 'Forza Horizon 5 Xbox Series X/S',
       quality: Quality.USED,
       price: 35900,
@@ -42,7 +42,7 @@ export class ListingService {
     },
     {
       listingId: '4',
-      imageKey: null,
+      imageKey: 'asd',
       title: 'Custom made PC',
       quality: Quality.USED,
       price: 989999,
@@ -60,7 +60,7 @@ export class ListingService {
       isNegotiable: true,
       categoryId: 1,
       quality: Quality.USED,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -70,7 +70,7 @@ export class ListingService {
       isNegotiable: false,
       categoryId: 2,
       quality: Quality.USED,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -80,7 +80,7 @@ export class ListingService {
       isNegotiable: true,
       categoryId: 6,
       quality: Quality.NEW,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -90,7 +90,7 @@ export class ListingService {
       isNegotiable: false,
       categoryId: 4,
       quality: Quality.USED,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -100,7 +100,7 @@ export class ListingService {
       isNegotiable: false,
       categoryId: 9,
       quality: Quality.NEW,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -110,7 +110,7 @@ export class ListingService {
       isNegotiable: false,
       categoryId: 1,
       quality: Quality.NEW,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -120,7 +120,7 @@ export class ListingService {
       isNegotiable: false,
       categoryId: 4,
       quality: Quality.NEW,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -130,7 +130,7 @@ export class ListingService {
       isNegotiable: true,
       categoryId: 3,
       quality: Quality.USED,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     },
     {
@@ -140,7 +140,7 @@ export class ListingService {
       isNegotiable: true,
       categoryId: 3,
       quality: Quality.USED,
-      imageKey: '',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
     }
   ]
@@ -325,6 +325,26 @@ export class ListingService {
         county: 'Bacau',
         city: 'Targu Ocna'
       }
+    },
+    {
+      id: 10,
+      title: 'It takes two playstation 4',
+      price: 1500,
+      isNegotiable: true,
+      categoryId: '2',
+      categoryName: 'Playstation Games',
+      quality: Quality.USED,
+      description: 'Experience the award-winning adventure game "It Takes Two" on PS4! Perfect for cooperative play, this game offers a unique story and engaging puzzles. Friends can join online co-op for free. Includes PS5 upgrade.',
+      imageKeys: ['', '', '', ''],
+      createdAt: new Date().toString(),
+      seenCount: 1,
+      sellerProfile: {
+        name: 'Timi Gherle',
+        phone: '0771719549',
+        profileImageKey: '',
+        county: 'Bihor',
+        city: 'Oradea'
+      }
     }
   ];
 
@@ -339,8 +359,8 @@ export class ListingService {
       price: dto.price * 100,
       isNegotiable: dto.isNegotiable,
       quality: dto.quality,
-      listingId: '5',
-      imageKey: null,
+      listingId: '10',
+      imageKey: 'asd',
       createdAt: new Date().toString(),
       categoryId: +dto.category
     }

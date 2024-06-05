@@ -29,7 +29,7 @@ $secondary-image-width: 80px;
       }
 
       &__main-image {
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.25);
         width: calc(100% - ($secondary-image-width + $space-between-main-image-and-secondary-images));
         max-height: 400px;
 
