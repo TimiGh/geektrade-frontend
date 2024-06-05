@@ -34,7 +34,7 @@
                 [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
             </div>
           </div>
-          <div class="mb-3 font-medium">
+          <div class="mb-3 font-medium h-[52px]">
             {{ product.title }}
           </div>
           <div class="flex justify-content-between align-items-center">
@@ -61,17 +61,19 @@
               [alt]="product.name"
               class="w-[160px] h-[200px] border-round rounded-xl" />
             <p-tag
-              value="NEW"
-              severity="success"
+              value="SALE"
+              severity="danger"
               class="absolute"
               [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
           </div>
         </div>
-        <div class="mb-3 font-medium">
+        <div class="mb-3 font-medium h-[52px]">
           {{ product.title }}
         </div>
-        <div class="flex justify-content-between align-items-center">
-          <div class="mt-auto font-semibold text-xl text-blue-600" [innerHTML]="product.price | price">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="mt-auto font-semibold text-l text-red-500 line-through " [innerHTML]="product.price | price">
+          </div>
+          <div class="mt-auto font-semibold text-l text-blue-600" [innerHTML]="(product.price - (product.price/20)) | price">
           </div>
         </div>
       </div>
