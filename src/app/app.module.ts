@@ -46,6 +46,9 @@ import { QualityFilterComponent } from './components/quality-filter/quality-filt
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {CarouselModule} from "primeng/carousel";
+import {TagModule} from "primeng/tag";
+import {Button} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -71,32 +74,35 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     QualityFilterComponent,
     BreadcrumbComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        FlexLayoutModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatAutocompleteModule,
-        HttpClientModule,
-        MatCardModule,
-        MatCheckboxModule,
-        NgOptimizedImage,
-        MatSelectModule,
-        MatSnackBarModule,
-        ImageCropperModule,
-        MatDialogModule,
-        MatTooltipModule,
-        MatChipsModule,
-        MatPaginatorModule,
-        MatMenuModule,
-        MatDividerModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    HttpClientModule,
+    MatCardModule,
+    MatCheckboxModule,
+    NgOptimizedImage,
+    MatSelectModule,
+    MatSnackBarModule,
+    ImageCropperModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    CarouselModule,
+    TagModule,
+    Button
+  ],
   providers: [ListingResolver],
   bootstrap: [AppComponent]
 })

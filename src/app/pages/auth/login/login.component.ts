@@ -35,8 +35,7 @@ export class LoginComponent {
         email: ['', Validators.compose([Validators.required, Validators.email,
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])
         ],
-        password: ['', Validators.compose([Validators.required, Validators.minLength(5),
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])]
+        password: ['', Validators.compose([Validators.required, Validators.minLength(5)])]
       }
     );
   }

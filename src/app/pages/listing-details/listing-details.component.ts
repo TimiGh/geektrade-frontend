@@ -27,6 +27,7 @@ export class ListingDetailsComponent {
         }
       });
     })
+    window.scrollTo(0, 0);
   }
 
   getSelectedImage(): string {
