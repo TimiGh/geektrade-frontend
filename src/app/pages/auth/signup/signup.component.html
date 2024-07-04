@@ -7,7 +7,7 @@
 
   <form [formGroup]="signupForm" fxLayout="column">
     <mat-form-field appearance="outline">
-      <input matInput required placeholder="Email" formControlName="email" [ngModel]="email">
+      <input matInput required placeholder="Email" formControlName="email">
       <mat-icon matSuffix>person_outline</mat-icon>
     </mat-form-field>
     <div *ngFor="let error of errorMessage.email">
@@ -18,7 +18,7 @@
 
     <mat-form-field appearance="outline">
       <input matInput placeholder="Password" formControlName="password"
-             [type]="hide1 ? 'password' : 'text'" required [ngModel]="password">
+             [type]="hide1 ? 'password' : 'text'" required>
       <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide1">
         <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -32,7 +32,7 @@
 
     <mat-form-field appearance="outline">
       <input matInput required placeholder="Confirm password" formControlName="confirm_password"
-             [type]="hide2 ? 'password' : 'text'" [ngModel]="confirmedPassword">
+             [type]="hide2 ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide2">
         <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -44,11 +44,11 @@
                        || signupForm.get('confirm_password')?.touched)">{{error.message}}</mat-error>
     </div>
 
-    <mat-checkbox formControlName="terms">I agree to the Terms & Conditions</mat-checkbox>
-
+    <mat-checkbox #terms formControlName="terms">I agree to the Terms & Conditions</mat-checkbox>
+{{signupForm.errors | json}}
     <mat-card-actions fxLayoutAlign="end center" fxLayoutGap="12px">
       <button mat-button (click)="resetForm()">Reset Fields</button>
-      <button mat-raised-button color="primary" [disabled]="!signupForm.valid" (click)="signUp()">Sign Up</button>
+      <button mat-raised-button color="primary" [disabled]="signupForm.errors || !terms.checked" (click)="signUp()">Sign Up</button>
     </mat-card-actions>
   </form>
 </mat-card>

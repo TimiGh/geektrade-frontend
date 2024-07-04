@@ -39,7 +39,7 @@ export class HomeComponent {
   }
 
   getCarouselListings(): void {
-    this.listingService.getListings().subscribe(res => {
+    this.listingService.getCarouselListings().subscribe(res => {
       this.products = res.content;
       this.discounted = res.content.slice().reverse();
     });

@@ -1,13 +1,29 @@
-<mat-form-field appearance="outline" class="global-search">
-  <input type="text"
-  placeholder="What are you looking for?"
-  matInput
-  [formControl]="searchControl"
-  [matAutocomplete]="auto">
-  <button mat-icon-button matSuffix>
-    <mat-icon>search</mat-icon>
-  </button>
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option ></mat-option>
-  </mat-autocomplete>
-</mat-form-field>
+<div [formGroup]="searchForm">
+  <mat-form-field appearance="outline" class="global-search">
+    <input type="text"
+           placeholder="What are you looking for?"
+           matInput
+           formControlName="term"
+           [matAutocomplete]="auto">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of (options$ | async)?.content" (click)="goToListingDetailPage(option.categoryId, option.id)">
+        <div  class="flex flex-row items-center justify-between w-full">
+          <div class="flex flex-row gap-2">
+            <img
+              [src]="(option.imageKey && option.imageKey !== '') ?  '../../../assets/mocks/' + option.id + '.jpg' : '../../../assets/images/placeholder-image.png'"
+              alt="listing image" width="40" height="40">
+            <span class="font-bold">{{option.title}}</span>
+          </div>
+          <div class="flex flex-row gap-2 ml-[20px]">
+            <span [innerHTML]="option.price | price" class="text-blue-500 font-bold"></span>
+            <span class="text-gray-400 italic">{{option.isNegotiable ? 'Negotiable' : ''}}</span>
+          </div>
+        </div>
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

@@ -34,7 +34,7 @@ export class AddListingComponent implements OnInit {
       {type: 'required', message: 'Field is required'},
       {type: 'pattern', message: 'The price should of the form [199.99]'},
     ],
-    'category': [
+    'categoryId': [
       {type: 'required', message: 'Field is required'},
     ],
     'quality': [
@@ -42,7 +42,7 @@ export class AddListingComponent implements OnInit {
     ],
     'description': [
       {type: 'required', message: 'Field is required'},
-      {type: 'maxlength', message: 'The description is too long (max 255 characters)'},
+      {type: 'maxlength', message: 'The description is too long (max 1000 characters)'},
     ]
   }
 
@@ -66,9 +66,9 @@ export class AddListingComponent implements OnInit {
       title: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       price: [null, Validators.compose([Validators.required, Validators.pattern('^\\d+(.\\d{1,2})?$')])],
       isNegotiable: [false],
-      category: ['', Validators.required],
+      categoryId: ['', Validators.required],
       quality: ['', Validators.required],
-      description: ['', Validators.compose([Validators.required, Validators.maxLength(255)])]
+      description: ['', Validators.compose([Validators.required, Validators.maxLength(1000)])]
     })
   }
 
@@ -101,21 +101,21 @@ export class AddListingComponent implements OnInit {
 
       image.localId = uuidv4();
       this.uploadedImages.unshift(image);
-      this.generateDescription();
+      this.generateDescription(image.file);
     })
 
   }
 
-  generateDescription(): void {
+  generateDescription(file: File): void {
     if (this.uploadedImages.length > 1) {
       return;
     }
 
     this.isDescriptionGenerationLoading = true;
-    setTimeout(() => {
-      this.listingForm.get('description')?.patchValue(this.newProductDescription);
+    this.listingService.getDescriptionFromImage(file).subscribe((description: {content: string}) => {
+      this.listingForm.get('description')?.patchValue(description.content);
       this.isDescriptionGenerationLoading = false;
-    }, 3000);
+    })
   }
 
   selectImageInput(): void {
@@ -143,8 +143,10 @@ export class AddListingComponent implements OnInit {
 
   createNewListing(): void {
     const dto = this.listingForm.value;
+    dto.price = parseFloat(dto.price) * 100;
+
     this.listingService.createListing(dto).pipe(
-      switchMap(listingId => forkJoin(this.getImagesObservableArray(listingId)))
+      switchMap(listing => forkJoin(this.getImagesObservableArray(listing.id)))
     ).subscribe(res => {
       this.snackbar.open('The listing hase been successfully created!', 'x', {
         panelClass: 'success',
@@ -159,7 +161,7 @@ export class AddListingComponent implements OnInit {
   }
 
   getImagesObservableArray(listingId: string): Observable<any>[] {
-    return this.uploadedImages.map(image => this.listingService.addImageToListing(image.file, listingId));
+    return this.uploadedImages.map(image => this.listingService.addImageToListing(image.file, listingId, !!image.selected));
   }
 }
 

@@ -9,8 +9,8 @@
         </button>
         <button mat-flat-button color="accent" *ngIf="isUser()" class="account-menu" [matMenuTriggerFor]="accountMenu">
           <span fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="4px">
-            <img [src]="user.profileImageKey ? user.profileImageKey : '../../assets/images/user-icon.png'" alt="user profile image">
-            <strong>{{user.username}}</strong>
+            <img [src]="user?.profileImageKey ? 'http://localhost:8080/api/user/profile-image/' + user?.profileImageKey : '../../assets/images/user-icon.png'" alt="user profile image">
+            <strong>{{user?.name}}</strong>
           </span>
           <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>

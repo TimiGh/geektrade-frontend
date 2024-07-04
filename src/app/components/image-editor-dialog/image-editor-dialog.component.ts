@@ -59,6 +59,7 @@ export class ImageEditorDialogComponent implements OnChanges {
   readFile(): void {
     const reader: FileReader = new FileReader();
     reader.onload = (loadEvent: any) => {
+      console.log(loadEvent.target.result);
       this.image = {
         data: loadEvent.target.result,
         url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.data)),

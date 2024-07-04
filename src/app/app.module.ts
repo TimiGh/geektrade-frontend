@@ -16,7 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {FooterComponent} from './components/footer/footer.component';
 import {CategoriesComponent} from './components/categories/categories.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {LoginComponent} from './pages/auth/login/login.component';
 import {SignupComponent} from './pages/auth/signup/signup.component';
@@ -49,6 +49,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {CarouselModule} from "primeng/carousel";
 import {TagModule} from "primeng/tag";
 import {Button} from "primeng/button";
+import {AppInterceptor} from "./utils/request-interceptor";
 
 @NgModule({
   declarations: [
@@ -103,7 +104,10 @@ import {Button} from "primeng/button";
     TagModule,
     Button
   ],
-  providers: [ListingResolver],
+  providers: [
+    ListingResolver,
+    {provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

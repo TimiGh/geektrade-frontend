@@ -4,7 +4,7 @@
 <!--      [ngSrc]="(!!listing.imageKey && listing.imageKey !== '') ? 'http://' + listing.imageKey : '../../../assets/images/placeholder-image.png'"-->
 <!--      alt="listing image" width="216" height="156">-->
     <img
-      [src]="(listing.imageKey && listing.imageKey !== '') ?  '../../../assets/mocks/'+listing.listingId+'.jpg' : '../../../assets/images/placeholder-image.png'"
+      [src]="!!listing.primaryImageId ? 'http://localhost:8080/api/listings/' + listing.primaryImageId + '/image'  : '../../../assets/images/placeholder-image.png'"
       alt="listing image" width="216" height="156">
   </div>
   <div class="listing-info-container" fxLayout="row" fxLayoutAlign="space-between">

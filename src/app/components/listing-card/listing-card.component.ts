@@ -14,14 +14,16 @@ export class ListingCardComponent {
 }
 
 export type ListingView = {
+  id?: number;
   listingId: string;
   imageKey: string | null;
   title: string;
   quality: Quality;
   price: number;
   isNegotiable: boolean;
-  createdAt: string;
+  createdAt?: string;
   categoryId: number;
+  primaryImageId?: number;
 }
 
 export type CreateListingDto = {

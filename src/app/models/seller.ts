@@ -1,7 +1,7 @@
 export interface Seller {
   name: string;
   phone: string;
-  profileImageKey: string;
+  profileImageKey?: number;
   county: string;
   city: string;
 }

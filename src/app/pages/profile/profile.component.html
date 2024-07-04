@@ -3,15 +3,18 @@
   <span>In this section you can change your password and edit profile info such as your Trader username or contact details.</span>
 </mat-card>
 
-<mat-card>
+<mat-card *ngIf="profile">
   <div class="container">
     <div class="user-header-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
-      <img
-        [ngSrc]="!!profile.profileImageKey ? 'http://' + profile.profileImageKey : '../../../assets/images/user-icon.png'"
-        width="106" height="106"
-        alt="user icon" class="user-icon">
+      <div (click)="updateProfileImage()" class="cursor-pointer">
+        <input #addImageInput type="file" accept="image/*" class="cdk-visually-hidden" (change)="addImage($event)">
+        <img
+          [ngSrc]="!!profile.profileImageKey ? 'http://localhost:8080/api/user/profile-image/' + profile.profileImageKey : '../../../assets/images/user-icon.png'"
+          width="106" height="106"
+          alt="user icon" class="user-icon">
+      </div>
       <div fxLayout="column" fxLayoutAlign="center start">
-        <p class="username">{{profile.username}}</p>
+        <p class="username">{{profile.name}}</p>
         <p class="join-date">Trader since {{profile.createdAt | date: dateFormat}}</p>
       </div>
     </div>
@@ -81,15 +84,15 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <input type="text" matInput placeholder="Username" formControlName="username">
+          <input type="text" matInput placeholder="Username" formControlName="name">
           <button mat-icon-button matSuffix>
             <mat-icon>person</mat-icon>
           </button>
         </mat-form-field>
-        <div *ngFor="let error of profileDetailsErrorMessage.username">
-          <mat-error *ngIf="profileDetailsForm.get('username')?.hasError(error.type)
-                       && (profileDetailsForm.get('username')?.dirty
-                       || profileDetailsForm.get('username')?.touched)">{{error.message}}</mat-error>
+        <div *ngFor="let error of profileDetailsErrorMessage.name">
+          <mat-error *ngIf="profileDetailsForm.get('name')?.hasError(error.type)
+                       && (profileDetailsForm.get('name')?.dirty
+                       || profileDetailsForm.get('name')?.touched)">{{error.message}}</mat-error>
         </div>
 
         <mat-form-field appearance="outline">

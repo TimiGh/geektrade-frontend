@@ -1,14 +1,15 @@
 <div class="container" fxLayout="column">
   <div class="title">Price</div>
 
-  <div [formGroup]="priceForm" fxLayout="row" fxLayoutGap="14px">
+  <div [formGroup]="priceForm" fxLayout="row" fxLayoutGap="24px">
       <mat-form-field appearance="outline">
-        <input matInput placeholder="Min" type="number" required formControlName="minPrice">
+        <input matInput placeholder="Min" type="number" required formControlName="priceMin">
       </mat-form-field>
       <div class="minus">-</div>
       <mat-form-field appearance="outline">
-        <input matInput placeholder="Max" type="number" required formControlName="maxPrice">
+        <input matInput placeholder="Max" type="number" required formControlName="priceMax">
       </mat-form-field>
   </div>
+  <button mat-flat-button color="accent" (click)="setPrice()">Set price</button>
 
 </div>

@@ -15,7 +15,7 @@
           <span class="main-section__title">{{listing.title}}</span>
           <div class="main-section__tags">
             <mat-chip-listbox>
-              <mat-chip-option color="primary" selected="true" removable="false">{{listing.categoryName}}</mat-chip-option>
+              <mat-chip-option color="primary" selected="true" removable="false">{{getCategoryName()}}</mat-chip-option>
               <mat-chip-option color="accent" selected="true" removable="false">{{listing.quality | titlecase}}</mat-chip-option>
             </mat-chip-listbox>
           </div>
@@ -36,11 +36,11 @@
     <div class="seller-section" fxLayout="column" fxLayoutAlign="start center">
       <p class="seller-section__title">Sold by</p>
       <img
-        [src]="listing.sellerProfile.profileImageKey !== '' ? listing.sellerProfile.profileImageKey : defaultProfileImagePath"
+        [src]="listing.user.profileImageKey ? 'http://localhost:8080/api/user/profile-image/' + listing.user.profileImageKey : defaultProfileImagePath"
         alt="user profile image" class="seller-section__profile-image">
-      <p class="seller-section__name">{{listing.sellerProfile.name}}</p>
-      <p class="seller-section__phone">{{listing.sellerProfile.phone}}</p>
-      <p class="seller-section__location">{{listing.sellerProfile.city}}, {{listing.sellerProfile.county}}</p>
+      <p class="seller-section__name">{{listing.user.name}}</p>
+      <p class="seller-section__phone">{{listing.user.phone}}</p>
+      <p class="seller-section__location">{{listing.user.city}}, {{listing.user.county}}</p>
     </div>
   </div>
 </mat-card>

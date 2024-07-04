@@ -2,8 +2,8 @@
   <div class="title">State</div>
 
   <div fxLayout="column">
-    <mat-checkbox>Used</mat-checkbox>
-    <mat-checkbox>New</mat-checkbox>
+    <mat-checkbox (change)="selectionChanged($event, 'used')" [checked]="selection.used">Used</mat-checkbox>
+    <mat-checkbox  (change)="selectionChanged($event, 'new')" [checked]="selection.unused">New</mat-checkbox>
   </div>
 
 </div>

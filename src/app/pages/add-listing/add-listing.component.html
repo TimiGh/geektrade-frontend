@@ -34,15 +34,15 @@
       <div fxLayout="row" fxLayoutAlign="space-between center" class="form-row">
         <div class="category">
           <mat-form-field appearance="outline">
-            <mat-select formControlName="category" placeholder="Select Category">
+            <mat-select formControlName="categoryId" placeholder="Select Category">
               <mat-option *ngFor="let category of (categories | async)"
                           [value]="category.id">{{category.name}}</mat-option>
             </mat-select>
           </mat-form-field>
-          <div *ngFor="let error of errorMessage.category">
-            <mat-error *ngIf="listingForm.get('category')?.hasError(error.type)
-                       && (listingForm.get('category')?.dirty
-                       || listingForm.get('category')?.touched)">{{error.message}}</mat-error>
+          <div *ngFor="let error of errorMessage.categoryId">
+            <mat-error *ngIf="listingForm.get('categoryId')?.hasError(error.type)
+                       && (listingForm.get('categoryId')?.dirty
+                       || listingForm.get('categoryId')?.touched)">{{error.message}}</mat-error>
           </div>
         </div>
         <div class="quality">

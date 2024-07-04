@@ -1,22 +1,33 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  user: any = {username: 'Timi Gherle'};
+export class HeaderComponent implements OnInit {
+  user: any;
   protected navigationTargets = NavigationTargets;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
+
+
+  }
+
+  ngOnInit(): void {
+    this.userService.getProfile().subscribe(user => {
+      this.user = user;
+    })
   }
 
   isUser(): boolean {
-    return !!localStorage.getItem('userData');
+    return !!localStorage.getItem('token');
   }
 
   goHome(): void {
@@ -48,10 +59,9 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    if (localStorage.getItem('userData')) {
-      localStorage.removeItem('userData')
-      this.router.navigate(['/login']).then();
-    }
+    this.user = null;
+    this.userService.logout();
+    this.router.navigate(['/login']).then();
   }
 }
 

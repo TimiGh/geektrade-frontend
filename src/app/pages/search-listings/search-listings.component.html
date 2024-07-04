@@ -19,25 +19,28 @@
   <div class="main-container" fxLayout="row">
     <mat-card class="side-filters">
       <app-category-filter (categorySelected)="setCurrentCategory($event)"></app-category-filter>
-      <app-price-filter></app-price-filter>
-      <app-quality-filter></app-quality-filter>
+      <app-price-filter (priceChanged)="setPrice($event)"></app-price-filter>
+      <app-quality-filter (qualityChanged)="setQuality($event)"></app-quality-filter>
     </mat-card>
     <div class="listings">
       <mat-paginator [length]="100"
                      [pageSize]="10"
                      [pageSizeOptions]="[5, 10, 25, 100]"
                      aria-label="Select page"
-                     class="paginator-top">
+                     class="paginator-top"
+      *ngIf="!shouldShowError">
       </mat-paginator>
 
       <div *ngFor="let listing of listings" class="listing-card">
         <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.listingId)"></app-listing-card>
       </div>
+      <mat-card *ngIf="shouldShowError" class="p-3 text-[18px] font-bold mt-4">Oops, looks like we didn't find anything related to your search!</mat-card>
       <mat-paginator [length]="100"
                      [pageSize]="10"
                      [pageSizeOptions]="[5, 10, 25, 100]"
                      aria-label="Select page"
-                     class="paginator-bottom">
+                     class="paginator-bottom"
+      *ngIf="!shouldShowError">
       </mat-paginator>
     </div>
   </div>

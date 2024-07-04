@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {slugify} from "../../utils/slugify";
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
@@ -9,15 +8,28 @@ import {FormBuilder, Validators} from "@angular/forms";
 })
 export class PriceFilterComponent {
   priceForm;
-  protected readonly slugify = slugify;
+  @Output() priceChanged: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder
   ) {
     this.priceForm = this.formBuilder.group({
-        minPrice: [''],
-        maxPrice: ['']
+        priceMin: [''],
+        priceMax: ['']
       }
     );
+  }
+
+  setPrice() {
+    const filter: {priceMin?: number, priceMax?: number} = {};
+
+    if (this.priceForm.get('priceMin')!.value && this.priceForm.get('priceMin')!.value !== '') {
+      filter.priceMin = +this.priceForm.get('priceMin')!.value!*100;
+    }
+
+    if (this.priceForm.get('priceMax')!.value && this.priceForm.get('priceMax')!.value !== '') {
+      filter.priceMax = +this.priceForm.get('priceMax')!.value!*100;
+    }
+    this.priceChanged.emit(filter);
   }
 }

@@ -5,14 +5,14 @@ export interface Listing {
   title: string;
   price: number;
   isNegotiable: boolean;
-  categoryId: string;
+  categoryId: number;
   categoryName: string;
   quality: Quality;
   description: string;
   imageKeys: string[];
   createdAt: string;
   seenCount: number;
-  sellerProfile: Seller;
+  user: Seller;
 }
 
 export enum Quality {

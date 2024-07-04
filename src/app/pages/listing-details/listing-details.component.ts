@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, Data} from "@angular/router";
 import {Listing} from "../../models/listing";
 import {CustomDateFormats} from "../../utils/date-formats";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-listing-details',
@@ -16,7 +17,8 @@ export class ListingDetailsComponent {
   placeholderImagePath =  'assets/images/placeholder-image.png';
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private categoryService: CategoryService,
   ) {
     this.route.data.subscribe((data: Data) => {
       this.listing = data['listing'];
@@ -28,6 +30,12 @@ export class ListingDetailsComponent {
       });
     })
     window.scrollTo(0, 0);
+
+
+  }
+
+  getCategoryName(): string {
+    return this.categoryService.getCategoryById(this.listing.categoryId)?.name!;
   }
 
   getSelectedImage(): string {

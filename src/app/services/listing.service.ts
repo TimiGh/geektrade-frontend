@@ -151,17 +151,16 @@ export class ListingService {
       title: 'MSI B650 Tomahawk WIFI',
       price: 19999,
       isNegotiable: true,
-      categoryId: '1',
+      categoryId: 1,
       categoryName: 'PC Components',
       quality: Quality.USED,
       description: 'Selling a used MSI B650 Tomahawk WIFI motherboard in excellent condition! This reliable and high-performance board is perfect for gamers and PC enthusiasts. Supports AMD Ryzen processors, has built-in Wi-Fi, multiple PCIe slots, and plenty of USB ports for all your peripherals. It’s been well taken care of, and I\'m only selling because I upgraded my system. Comes with the original box and all accessories. A great deal for anyone looking to build or upgrade their PC.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 1259,
-      sellerProfile: {
+      user: {
         name: 'Ionut Sfert',
         phone: '0746455878',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Oradea'
       }
@@ -171,17 +170,16 @@ export class ListingService {
       title: 'Skyrim Legendary Edition',
       price: 2000,
       isNegotiable: false,
-      categoryId: '2',
+      categoryId: 2,
       categoryName: 'Playstation Games',
       quality: Quality.USED,
       description: 'Selling a used copy of Skyrim Legendary Edition for Playstation 4 (upgradeable to PS5). PRICE IS NON-NEGOTIABLE!!!',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 82,
-      sellerProfile: {
+      user: {
         name: 'Cristi Oskt',
         phone: '0784556231',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Alparea'
       }
@@ -191,17 +189,16 @@ export class ListingService {
       title: 'Giblioteca - Gibli Enciclopedia',
       price: 18000,
       isNegotiable: true,
-      categoryId: '6',
+      categoryId: 6,
       categoryName: 'Books & Guides',
       quality: Quality.NEW,
       description: 'Scopri tutti i film del più grande studio di animazione al mondo: Lo studio Ghibli. Nato dalla penna degli scrittori ed esperti di Studio Ghibli Leader e Cunningham,Ghiblioteca offre un\'affascinante e precisa critica di alcuni dei più grandi film d\'animazione di tutti i tempi, compresi "La città incantata", Il mio vicino Totoro e Principessa Mononoke. ',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 3,
-      sellerProfile: {
+      user: {
         name: 'Renata M.',
         phone: '0798556221',
-        profileImageKey: '',
         county: 'Cluj',
         city: 'Cluj-Napoca'
       }
@@ -211,17 +208,16 @@ export class ListingService {
       title: 'Zelda: Breath of the Wild',
       price: 2499,
       isNegotiable: false,
-      categoryId: '4',
+      categoryId: 4,
       categoryName: 'Switch Games',
       quality: Quality.USED,
       description: 'The game comes in it\'s original box. The cartridge is in good condition.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 975,
-      sellerProfile: {
+      user: {
         name: 'Timi Hanosi',
         phone: '0771719548',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Oradea'
       }
@@ -231,17 +227,16 @@ export class ListingService {
       title: 'PC Repair Services',
       price: 1500,
       isNegotiable: false,
-      categoryId: '9',
+      categoryId: 9,
       categoryName: 'Services',
       quality: Quality.NEW,
       description: 'Get your PC fixed by professionals with more than 10 years experience in PC troubleshooting. Listed price is per hour.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 20,
-      sellerProfile: {
+      user: {
         name: 'PC Repair Shop Rogerius',
         phone: '0359335959',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Talpenii de Munte'
       }
@@ -251,17 +246,16 @@ export class ListingService {
       title: 'Asus ROG RTX 4090',
       price: 9000,
       isNegotiable: false,
-      categoryId: '1',
+      categoryId: 1,
       categoryName: 'PC Components',
       quality: Quality.NEW,
       description: 'Experience the ultimate in gaming and creative performance with the new ASUS ROG RTX 4090. Engineered with cutting-edge NVIDIA Ampere architecture, this powerhouse graphics card delivers unmatched speed, stunning visuals, and incredible AI capabilities. With 24GB of GDDR6X memory, advanced cooling solutions, and customizable RGB lighting, the ROG RTX 4090 is designed to elevate your gameplay and productivity to the next level. Dominate the latest titles, render complex 3D models, and enjoy seamless multitasking with the best in class. Upgrade to the ASUS ROG RTX 4090 – where performance meets precision.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 9361,
-      sellerProfile: {
+      user: {
         name: 'Andrei Pop',
         phone: '0749225414',
-        profileImageKey: '',
         county: 'Constanța',
         city: 'Constanța'
       }
@@ -271,17 +265,16 @@ export class ListingService {
       title: 'Mario Kart 8 - Switch',
       price: 15080,
       isNegotiable: false,
-      categoryId: '4',
+      categoryId: 4,
       categoryName: 'Switch Games',
       quality: Quality.NEW,
       description: 'Get ready for the ultimate racing adventure with Mario Kart 8 Deluxe on Nintendo Switch! Race your friends or go solo in the most thrilling Mario Kart experience yet. Featuring all-new characters, tracks, and battle modes, plus enhanced graphics and smoother gameplay. Compete online or locally, and enjoy the fun anywhere, anytime with the portability of the Switch. Whether you’re a seasoned racer or a newcomer, Mario Kart 8 Deluxe promises endless excitement and unforgettable fun. Grab your copy today and join the race!',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 318,
-      sellerProfile: {
+      user: {
         name: 'Marius V.',
         phone: '0749207743',
-        profileImageKey: '',
         county: 'Satu Mare',
         city: 'Carei'
       }
@@ -291,17 +284,16 @@ export class ListingService {
       title: 'Forza Horizon 5 Xbox Series X/S',
       price: 35900,
       isNegotiable: true,
-      categoryId: '3',
+      categoryId: 3,
       categoryName: 'Xbox Games',
       quality: Quality.USED,
       description: 'Experience the thrill of open-world racing with a used copy of Forza Horizon 5 for Xbox Series X/S. Explore the vibrant landscapes of Mexico, drive hundreds of the world’s greatest cars, and enjoy dynamic seasons that change everything. This pre-owned game is in excellent condition and offers the same high-octane fun at a fraction of the price. Whether you’re racing solo, competing online, or just cruising, Forza Horizon 5 delivers endless excitement and stunning visuals. ',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 870,
-      sellerProfile: {
+      user: {
         name: 'Andreea Varga',
         phone: '0359335959',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Derna'
       }
@@ -311,17 +303,16 @@ export class ListingService {
       title: 'Custom made PC',
       price: 989999,
       isNegotiable: true,
-      categoryId: '3',
+      categoryId: 3,
       categoryName: 'Xbox Games',
       quality: Quality.USED,
       description: 'Unleash your potential with a custom-built PC designed to meet your exact needs. This high-performance machine features the latest Intel i9 processor, NVIDIA RTX 3080 graphics card, 32GB of DDR4 RAM, and a 1TB NVMe SSD for lightning-fast load times. Perfect for gaming, content creation, and heavy multitasking, this custom PC combines power and aesthetics with a sleek RGB-lit case and advanced cooling system. Built with premium components and expert craftsmanship, it\'s ready to handle anything you throw at it. Elevate your computing experience with this custom-made powerhouse.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 3196,
-      sellerProfile: {
+      user: {
         name: 'Razvan Popescu',
         phone: '0771719848',
-        profileImageKey: '',
         county: 'Bacau',
         city: 'Targu Ocna'
       }
@@ -331,17 +322,16 @@ export class ListingService {
       title: 'It takes two playstation 4',
       price: 1500,
       isNegotiable: true,
-      categoryId: '2',
+      categoryId: 2,
       categoryName: 'Playstation Games',
       quality: Quality.USED,
       description: 'Experience the award-winning adventure game "It Takes Two" on PS4! Perfect for cooperative play, this game offers a unique story and engaging puzzles. Friends can join online co-op for free. Includes PS5 upgrade.',
       imageKeys: ['', '', '', ''],
       createdAt: new Date().toString(),
       seenCount: 1,
-      sellerProfile: {
+      user: {
         name: 'Timi Gherle',
         phone: '0771719549',
-        profileImageKey: '',
         county: 'Bihor',
         city: 'Oradea'
       }
@@ -353,69 +343,49 @@ export class ListingService {
   ) {
   }
 
-  createListing(dto: CreateListingDto): Observable<string> {
-    const listing: ListingView = {
-      title: dto.title,
-      price: dto.price * 100,
-      isNegotiable: dto.isNegotiable,
-      quality: dto.quality,
-      listingId: '10',
-      imageKey: 'asd',
-      createdAt: new Date().toString(),
-      categoryId: +dto.category
-    }
-
-    this.personalListings.push(listing);
-    return EMPTY;
-    // return this.http.post<string>('/api/listings', dto);
+  get authorization(): string {
+    return localStorage.getItem('token')!;
   }
 
-  addImageToListing(dto: any, listingId: string): Observable<any> {
-    return this.http.post(`/api/listings/${listingId}/images`, dto);
+  createListing(dto: CreateListingDto): Observable<any> {
+    const headers = {Authorization: this.authorization};
+
+    return this.http.post<any>('api/listings/create', dto, {headers: headers});
+  }
+
+  addImageToListing(file: File, listingId: string, isPrimary: boolean): Observable<any> {
+    const headers = {Authorization: this.authorization};
+    const fd: FormData = new FormData();
+    fd.append('file', file, 'profile-pic');
+    return this.http.post(`api/listings/${listingId}/${isPrimary}/image`, fd, {headers: headers}) ;
   }
 
   getListing(listingId: string): Observable<Listing> {
-    return of(this.allListingDetails.find(listing => listing.id === parseInt(listingId, 10))!);
+    const headers = {Authorization: this.authorization};
 
-    // const headers = new HttpHeaders().set('noSpinner', 'true');
-    //
-    // return this.http.get<Listing>(`/api/listings/${listingId}`, {headers});
+    return this.http.get<Listing>(`api/listings/${listingId}`, {headers: headers});
   }
 
   getPersonalListings(): Observable<PersonalListings> {
-    // return this.http.get<PersonalListings>('/api/listings');
+    const headers = {Authorization: this.authorization};
 
-    return of(<PersonalListings>{
-      content: this.personalListings,
-      pageable: {
-        sort: {
-          empty: true,
-          unsorted: true,
-          sorted: false
-        },
-        offset: 0,
-        pageSize: 1000,
-        pageNumber: 0,
-        unpaged: false,
-        paged: true
-      },
-      last: true,
-      totalPages: 1,
-      totalElements: 80,
-      first: true,
-      sort: {
-        empty: true,
-        unsorted: true,
-        sorted: false
-      },
-      size: 1000,
-      number: 0,
-      numberOfElements: 80,
-      empty: false
-    });
+    return this.http.get<PersonalListings>('api/listings/search/personal', {headers: headers});
   }
 
-  getListings(): Observable<PersonalListings> {
+  getListings(filters?: Filters): Observable<PersonalListings> {
+    const headers = {Authorization: this.authorization};
+
+    return this.http.post<PersonalListings>(`api/listings/search`, filters, { headers: headers })
+  }
+
+  getDescriptionFromImage(file: File): Observable<{content: string}> {
+    const headers = {Authorization: this.authorization};
+    const fd: FormData = new FormData();
+    fd.append('file', file, 'profile-pic');
+    return this.http.post<{content: string}>('api/listings/generate-description', fd, {headers: headers});
+  }
+
+  getCarouselListings(): Observable<PersonalListings> {
     return of(<PersonalListings>{
       content: this.searchListings,
       pageable: {
@@ -445,6 +415,8 @@ export class ListingService {
       empty: false
     });
   }
+
+
 }
 
 export type CreateListingDto = {
@@ -486,4 +458,12 @@ export type Pageable = {
   pageNumber: number;
   unpaged: boolean;
   paged: boolean;
+}
+
+export type Filters = {
+  term?: string;
+  categoryId?: number;
+  priceMin?: number;
+  priceMax?: number;
+  quality?: string;
 }
