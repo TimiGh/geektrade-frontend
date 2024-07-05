@@ -34,7 +34,7 @@ export class PersonalListingsComponent {
     });
   }
 
-  goToListing(categoryId: number, listingId: string): void {
+  goToListing(categoryId: number, listingId: number): void {
     this.router.navigate([`listings/${this.getCategorySlug(categoryId)}/${listingId}`]).then();
   }
 

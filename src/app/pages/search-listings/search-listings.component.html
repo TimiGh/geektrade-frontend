@@ -3,7 +3,7 @@
   <mat-card class="actions" fxLayout="row" fxLayoutAlign="space-between center">
     <div class="breadcrumbs">
     <span>Home</span> /
-      <span>{{currentCategory.name}}</span>
+      <span>{{currentCategory?.name}}</span>
     </div>
     <div [formGroup]="sortForm" class="sort-container">
       <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
@@ -32,7 +32,7 @@
       </mat-paginator>
 
       <div *ngFor="let listing of listings" class="listing-card">
-        <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.listingId)"></app-listing-card>
+        <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.id!, listing)"></app-listing-card>
       </div>
       <mat-card *ngIf="shouldShowError" class="p-3 text-[18px] font-bold mt-4">Oops, looks like we didn't find anything related to your search!</mat-card>
       <mat-paginator [length]="100"

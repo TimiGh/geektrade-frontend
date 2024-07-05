@@ -49,7 +49,8 @@ export class SearchListingsComponent {
     });
   }
 
-  goToListing(categoryId: number, listingId: string): void {
+  goToListing(categoryId: number, listingId: number, listing?: any): void {
+    console.log(listing);
     this.router.navigate([`listings/${this.getCategorySlug(categoryId)}/${listingId}`]).then();
   }
 

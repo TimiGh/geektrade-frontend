@@ -45,7 +45,6 @@
     </div>
 
     <mat-checkbox #terms formControlName="terms">I agree to the Terms & Conditions</mat-checkbox>
-{{signupForm.errors | json}}
     <mat-card-actions fxLayoutAlign="end center" fxLayoutGap="12px">
       <button mat-button (click)="resetForm()">Reset Fields</button>
       <button mat-raised-button color="primary" [disabled]="signupForm.errors || !terms.checked" (click)="signUp()">Sign Up</button>

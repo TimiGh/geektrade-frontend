@@ -12,7 +12,7 @@
 </mat-paginator>
 
 <div *ngFor="let listing of personalListings" class="listing-card">
-  <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.listingId)"></app-listing-card>
+  <app-listing-card [listing]="listing" (click)="goToListing(listing.categoryId, listing.id!)"></app-listing-card>
 </div>
 <mat-paginator [length]="100"
                [pageSize]="10"
